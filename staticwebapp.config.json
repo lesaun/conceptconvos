@@ -1,0 +1,29 @@
+{
+    "routes": [
+      {
+        "route": "/*",
+        "allowedRoles": ["administrator"]
+      },
+      {
+        "route": "/login",
+        "rewrite": "/.auth/login/github"
+      },
+      {
+        "route": "/logout",
+        "redirect": "/.auth/logout"
+      }
+    ],
+    "navigationFallback": {
+      "rewrite": "index.html",
+      "exclude": ["/images/*.{png,jpg,gif}", "/css/*"]
+    },
+    "responseOverrides": {
+      "401": {
+        "redirect": "/login",
+        "statusCode": 302
+      }
+    },
+    "mimeTypes": {
+      ".json": "text/json"
+    }
+}
