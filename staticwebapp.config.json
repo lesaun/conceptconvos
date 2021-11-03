@@ -7,10 +7,6 @@
       {
         "route": "/logout",
         "redirect": "/.auth/logout"
-      },
-      {
-        "route": "/*",
-        "allowedRoles": ["administrator"]
       }
     ],
     "navigationFallback": {
