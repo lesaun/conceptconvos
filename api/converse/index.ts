@@ -1,4 +1,4 @@
-import { ApolloServer, gql} from "apollo-server-azure-functions";
+import { ApolloServer, gql } from "apollo-server-azure-functions";
 
 const typeDefs = gql`
   type Query {
