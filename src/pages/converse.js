@@ -4,8 +4,10 @@
 // request generation by ai
 // reorder conversation lines
 // remove conversation lines
-// create new line as copy of previous
+// create new line as copy of previous (use as edit)
 import * as React from 'react';
+
+import Layout from "../components/layout"
 
 const ConversePage = () => {
   return (
