@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 
 import schema from './schema'
 
-let connectionString = process.env.COSMOS_CONNECTION_STRING;
+let connectionString = "mongodb://conceptconvos:QYqsspxT2IqAGxC7wI4w0Cq9jALIyrLwxLDsf7TsJIg7HEql6GigRMXuyq1IqL5Nq07dpSjMsctTKEw5qn8KvA==@conceptconvos.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@conceptconvos@";
 
 (async () => {
     await mongoose.connect(connectionString)
