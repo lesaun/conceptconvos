@@ -18,6 +18,7 @@ const ConversationSchema = new mongoose.Schema({
 
 const Line = mongoose.model('Line', LineSchema)
 const Conversation = mongoose.model('Conversation', ConversationSchema)
+
 const LineTC = composeMongoose(Line, {})
 const ConversationTC = composeMongoose(Conversation, {})
 
@@ -25,15 +26,16 @@ schemaComposer.Query.addFields({
   conversationById: ConversationTC.mongooseResolvers.findById(),
   conversationByIds: ConversationTC.mongooseResolvers.findByIds(),
   conversationMany: ConversationTC.mongooseResolvers.findMany(),
-  linesById: ConversationTC.mongooseResolvers.findById(),
-  linesByIds: ConversationTC.mongooseResolvers.findByIds(),
+  lineById: LineTC.mongooseResolvers.findById(),
+  lineByIds: LineTC.mongooseResolvers.findByIds(),
 });
 
 schemaComposer.Mutation.addFields({
   conversationCreateOne: ConversationTC.mongooseResolvers.createOne(),
   conversationUpdateById: ConversationTC.mongooseResolvers.updateById(),
   conversationRemoveById: ConversationTC.mongooseResolvers.removeById(),
-  linesCreateOne: LineTC.mongooseResolvers.createOne(),
+  lineCreateOne: LineTC.mongooseResolvers.createOne(),
+  lineUpdateById: LineTC.mongooseResolvers.updateById(),
 });
 
 const schema = schemaComposer.buildSchema();

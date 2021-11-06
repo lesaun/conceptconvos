@@ -6,13 +6,12 @@ import { graphql } from 'gatsby'
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const IndexPage = ({ data }) => (
+const IndexPage = () => (
   <Layout>
     <Seo title="Home" />
     <h1> .ai club</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-    <p>{data.converse.hello}</p>
     <StaticImage
       src="../images/gatsby-astronaut.png"
       width={300}
@@ -29,13 +28,5 @@ const IndexPage = ({ data }) => (
     </p>
   </Layout>
 )
-
-export const query = graphql`
- {
-   converse {
-     hello
-   }
- }
-`
 
 export default IndexPage
