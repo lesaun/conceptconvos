@@ -17,12 +17,4 @@ const ConversePage = ({ data }) => {
   )
 }
 
-export const query = graphql`
-{
-    conversationMany {
-        name
-    }
-}
-`
-
 export default ConversePage
