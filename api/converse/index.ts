@@ -1,19 +1,8 @@
 import { ApolloServer, gql } from "apollo-server-azure-functions";
-
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
-
-const resolvers = {
-  Query: {
-    hello: () => "Hello from our GraphQL backend!",
-  },
-};
+import schema from './schema'
 
 // @ts-ignore
-const server = new ApolloServer({ typeDefs, resolvers, debug: true, playground: true});
+const server = new ApolloServer({ schema, resolvers, debug: true, playground: true});
 
 export default server.createHandler({
   cors: {
