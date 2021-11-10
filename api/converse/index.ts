@@ -33,7 +33,6 @@ const apolloHandler = server.createHandler({
 });
 
 const handler = async (context: Context, req: HttpRequest) => {
-    await init()
     return apolloHandler(context, req)
 }
 
