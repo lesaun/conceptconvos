@@ -1,0 +1,20 @@
+type Conversation @model @auth(rules: [{allow: groups, groups: ["admin"], operations: [read, create, update, delete]}]) {
+  id: ID!
+  lines: [LineConversation] @connection(keyName: "byConversation", fields: ["id"])
+  title: String
+}
+
+type Line @model @auth(rules: [{allow: groups, groups: ["admin"], operations: [read, create, update, delete]}]) {
+  id: ID!
+  conversation: [LineConversation] @connection(keyName: "byLine", fields: ["id"])
+  text: String
+}
+
+type LineConversation @model(queries: null) @key(name: "byLine", fields: ["lineID", "conversationID"]) @key(name: "byConversation", fields: ["conversationID", "lineID"]) @auth(rules: [{allow: groups, groups: ["admin"], operations: [read, create, update, delete]}, {allow: groups, groups: ["admin"], operations: [read, create, update, delete]}]) {
+  id: ID!
+  lineID: ID!
+  conversationID: ID!
+  line: Line! @connection(fields: ["lineID"])
+  conversation: Conversation! @connection(fields: ["conversationID"])
+}
+ 
