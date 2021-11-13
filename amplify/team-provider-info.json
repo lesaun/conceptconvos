@@ -14,6 +14,13 @@
     "categories": {
       "auth": {
         "conceptconvosf36a0210": {}
+      },
+      "function": {
+        "conceptconvossay": {
+          "secretsPathAmplifyAppId": "d3udxqjrc34mni",
+          "deploymentBucketName": "amplify-conceptconvos-staging-33627-deployment",
+          "s3Key": "amplify-builds/conceptconvossay-333357422b337865437a-build.zip"
+        }
       }
     }
   }

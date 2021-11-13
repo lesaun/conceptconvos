@@ -1,20 +1,29 @@
-type Conversation @model @auth(rules: [{allow: groups, groups: ["admin"], operations: [read, create, update, delete]}]) {
+type Conversation
+  @model
+  @auth(rules: [{ allow: owner }, { allow: groups, groups: ["admin"] }]) {
   id: ID!
-  lines: [LineConversation] @connection(keyName: "byConversation", fields: ["id"])
+  lines: [LineConversation]
+    @connection(keyName: "byConversation", fields: ["id"])
   title: String
 }
 
-type Line @model @auth(rules: [{allow: groups, groups: ["admin"], operations: [read, create, update, delete]}]) {
+type Line
+  @model
+  @auth(rules: [{ allow: owner }, { allow: groups, groups: ["admin"] }]) {
   id: ID!
-  conversation: [LineConversation] @connection(keyName: "byLine", fields: ["id"])
+  conversation: [LineConversation]
+    @connection(keyName: "byLine", fields: ["id"])
   text: String
 }
 
-type LineConversation @model(queries: null) @key(name: "byLine", fields: ["lineID", "conversationID"]) @key(name: "byConversation", fields: ["conversationID", "lineID"]) @auth(rules: [{allow: groups, groups: ["admin"], operations: [read, create, update, delete]}, {allow: groups, groups: ["admin"], operations: [read, create, update, delete]}]) {
+type LineConversation
+  @model(queries: null)
+  @key(name: "byLine", fields: ["lineID", "conversationID"])
+  @key(name: "byConversation", fields: ["conversationID", "lineID"])
+  @auth(rules: [{ allow: owner }, { allow: groups, groups: ["admin"] }]) {
   id: ID!
   lineID: ID!
   conversationID: ID!
   line: Line! @connection(fields: ["lineID"])
   conversation: Conversation! @connection(fields: ["conversationID"])
 }
- 

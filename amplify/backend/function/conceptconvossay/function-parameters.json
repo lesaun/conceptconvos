@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "auth": {
+      "conceptconvosf36a0210": [
+        "read"
+      ]
+    },
+    "api": {
+      "conceptconvos": [
+        "Query",
+        "Mutation",
+        "Subscription"
+      ]
+    }
+  },
+  "lambdaLayers": [],
+  "secretNames": [
+    "OPENAI_API_KEY"
+  ]
+}
