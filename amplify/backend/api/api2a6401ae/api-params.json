@@ -1,0 +1,59 @@
+{
+    "paths": [
+        {
+            "name": "/api/requestai",
+            "lambdaFunction": "conceptconvossay",
+            "privacy": {
+                "userPoolGroups": {
+                    "admin": [
+                        "/POST",
+                        "/GET",
+                        "/PUT",
+                        "/PATCH",
+                        "/DELETE"
+                    ]
+                }
+            },
+            "policyResourceName": "/api/requestai"
+        }
+    ],
+    "resourceName": "api2a6401ae",
+    "apiName": "api2a6401ae",
+    "functionArns": [
+        {
+            "lambdaFunction": "conceptconvossay"
+        }
+    ],
+    "privacy": {
+        "auth": 0,
+        "unauth": 0,
+        "authRoleName": "amplify-conceptconvos-staging-33627-authRole",
+        "unAuthRoleName": "amplify-conceptconvos-staging-33627-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "conceptconvossay",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "auth",
+            "resourceName": "conceptconvosf36a0210",
+            "attributes": [
+                "UserPoolId"
+            ]
+        },
+        {
+            "category": "auth",
+            "resourceName": "userPoolGroups",
+            "attributes": [
+                "adminGroupRole"
+            ]
+        }
+    ],
+    "uuid": "a49a200e",
+    "authResourceName": "conceptconvosf36a0210"
+}
