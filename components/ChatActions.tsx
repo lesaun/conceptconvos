@@ -6,6 +6,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 
 import ChatBox from "./ChatBox";
 import { Conversation } from "../models";
+import GenerateButton from "./GenerateButton";
 
 interface Props {
   conversation: Conversation | undefined;
@@ -33,6 +34,7 @@ const ChatActions = ({
         setActiveSpeaker={setActiveSpeaker}
         speakers={conversation.speakers}
       />
+      <GenerateButton speakers={conversation.speakers} />
       <IconButton onClick={handleOpen}>
         <SettingsIcon />
       </IconButton>
