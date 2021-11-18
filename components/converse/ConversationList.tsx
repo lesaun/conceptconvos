@@ -4,7 +4,7 @@ import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { Button } from "@mui/material";
-import { Conversation } from "../models";
+import { Conversation } from "../../models";
 
 interface Props {
   conversations: Conversation[];

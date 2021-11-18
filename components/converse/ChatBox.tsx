@@ -6,18 +6,39 @@ import SendIcon from "@mui/icons-material/Send";
 import { MenuItem } from "@mui/material";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
+import { Conversation, Line, LineConversation } from "../../models";
+import { DataStore } from "aws-amplify";
 
 interface Props {
   speakers: (string | null)[] | undefined;
-  activeSpeaker: String | undefined;
+  activeSpeaker: string | undefined;
   setActiveSpeaker: React.Dispatch<React.SetStateAction<string | undefined>>;
+  conversation: Conversation;
 }
+
+const saveLine = async (conversation: Conversation, text: string, activeSpeaker: string) => {
+  const line = await DataStore.save(
+    new Line({
+      text: text,
+      speaker: activeSpeaker,
+    })
+  );
+
+  DataStore.save(
+    new LineConversation({
+      conversation: conversation,
+      line: line
+    })
+  );
+};
 
 export default function ChatBox({
   speakers,
   activeSpeaker,
   setActiveSpeaker,
+  conversation,
 }: Props) {
+  const [text, setText] = React.useState("");
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const open = Boolean(anchorEl);
@@ -64,10 +85,14 @@ export default function ChatBox({
           : null}
       </Menu>
       <InputBase
+        value={text}
+        onChange={(e) => setText(e.target.value)}
         sx={{ ml: 1, flex: 1 }}
         inputProps={{ "aria-label": "speak as speaker" }}
       />
-      <IconButton color="primary" sx={{ p: "10px" }} aria-label="Send Chat">
+      <IconButton color="primary"
+       onClick={() => activeSpeaker !== undefined ? saveLine(conversation, text, activeSpeaker) : null}
+       sx={{ p: "10px" }} aria-label="Send Chat">
         <SendIcon />
       </IconButton>
     </Paper>

@@ -6,12 +6,12 @@ import Amplify, { API, DataStore, Predicates } from "aws-amplify";
 import { AmplifyAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 import awsconfig from "../aws-exports";
 
-import ChatActions from "../components/ChatActions";
-import ChatWindow from "../components/ChatWindow";
-import ConversationList from "../components/ConversationList";
+import ChatActions from "../components/converse/ChatActions";
+import ChatWindow from "../components/converse/ChatWindow";
+import ConversationList from "../components/converse/ConversationList";
 import { Conversation } from "../models";
 import React, { useEffect, useState } from "react";
-import ConversationCreateForm from "../components/ConversationCreateForm";
+import ConversationCreateForm from "../components/converse/ConversationCreateForm";
 
 Amplify.configure(awsconfig);
 
@@ -52,6 +52,8 @@ const Converse: NextPage = () => {
     return () => subscription.unsubscribe();
   }, []);
 
+  console.log(conversations);
+  
   return (
     <AmplifyAuthenticator>
       <div className={styles.container}>

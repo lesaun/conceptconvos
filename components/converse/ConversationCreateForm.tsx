@@ -14,7 +14,7 @@ import {
   TextField,
 } from "@mui/material";
 
-import { Conversation } from "../models";
+import { Conversation } from "../../models";
 
 const ListItem = styled("li")(({ theme }) => ({
   margin: theme.spacing(0.5),

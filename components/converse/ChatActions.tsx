@@ -5,12 +5,12 @@ import IconButton from "@mui/material/IconButton";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 import ChatBox from "./ChatBox";
-import { Conversation } from "../models";
+import { Conversation } from "../../models";
 import GenerateButton from "./GenerateButton";
 
 interface Props {
   conversation: Conversation | undefined;
-  activeSpeaker: String | undefined;
+  activeSpeaker: string | undefined;
   setActiveSpeaker: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
@@ -33,6 +33,7 @@ const ChatActions = ({
         activeSpeaker={activeSpeaker}
         setActiveSpeaker={setActiveSpeaker}
         speakers={conversation.speakers}
+        conversation={conversation}
       />
       <GenerateButton speakers={conversation.speakers} />
       <IconButton onClick={handleOpen}>
