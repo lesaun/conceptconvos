@@ -9,12 +9,12 @@ import { Conversation } from '../models';
 interface Props {
     conversations: Conversation[];
     selectedConversationId: string;
-    setSelectedConversationId: any;
+    setSelectedConversationWithId: any;
 }
 
-const ConversationList = ({ conversations, selectedConversationId, setSelectedConversationId }: Props) => {
+const ConversationList = ({ conversations, selectedConversationId, setSelectedConversationWithId }: Props) => {
   const handleListItemClick = (event: any, index: string) => {
-    setSelectedConversationId(index);
+    setSelectedConversationWithId(index);
   };
 
   return (

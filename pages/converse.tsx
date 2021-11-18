@@ -29,20 +29,23 @@ if (typeof window !== 'undefined') {
 const Home: NextPage = () => {
   const [conversations, setConversations] = useState<Conversation[]>([])
   const [selectedConversationId, setSelectedConversationId] = useState("");
+  const [selectedConversation, setSelectedConversation] = useState<Conversation>();
+  const [activeSpeaker, setActiveSpeaker] = useState<string | undefined>();
 
-  let selectedConversation : Conversation | null = null
-
-  if (selectedConversationId !== "") {
-    for (let i = 0; i < conversations.length; i++) {
-      if (conversations[i].id === selectedConversationId) {
-        selectedConversation = conversations[i]
-        break
+  const setSelectedConversationWithId = (id: string) => {
+    setSelectedConversationId(id)
+    if (id !== "") {
+      for (let i = 0; i < conversations.length; i++) {
+        if (conversations[i].id === id) {
+          setSelectedConversation(conversations[i])
+          setActiveSpeaker(conversations[i].defaultUserSpeaker)
+          break
+        }
       }
     }
   }
 
-  const [activeSpeaker, setActiveSpeaker] = useState(selectedConversation?.defaultUserSpeaker);
-  console.log(selectedConversation, activeSpeaker)
+  console.log(selectedConversation,activeSpeaker, selectedConversationId)
 
   useEffect(() => {
     const subscription = DataStore.observeQuery(Conversation, Predicates.ALL).subscribe(snapshot => {
@@ -67,7 +70,7 @@ const Home: NextPage = () => {
           <ConversationList
             conversations={conversations}
             selectedConversationId={selectedConversationId}
-            setSelectedConversationId={setSelectedConversationId}
+            setSelectedConversationWithId={setSelectedConversationWithId}
           />
           <div className={styles.chat}>
             {

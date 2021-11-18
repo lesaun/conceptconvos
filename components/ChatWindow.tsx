@@ -29,14 +29,14 @@ const Chat = ({ align, text, color }: any) => {
 };
 
 interface Props {
-  conversation: Conversation | null;
+  conversation: Conversation | undefined;
   activeSpeaker: String | undefined;
 }
 
 const ChatWindow = ({ conversation, activeSpeaker }: Props) => {
   return (
     <div>
-      {conversation !== null && activeSpeaker !== undefined
+      {conversation !== undefined && activeSpeaker !== undefined
         ? conversation.lines !== undefined
           ? conversation.lines.map((conversationLine, i: number) =>
               conversationLine ? (

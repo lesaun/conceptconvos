@@ -13,7 +13,7 @@ import GenerateButton from "./GenerateButton";
 import { Conversation } from "../models";
 
 interface Props {
-  conversation: Conversation | null;
+  conversation: Conversation | undefined;
   activeSpeaker: String | undefined;
   setActiveSpeaker: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
@@ -23,7 +23,7 @@ const ChatActions = ({ conversation, setActiveSpeaker, activeSpeaker }: Props) =
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  if (conversation === null) {
+  if (conversation === undefined) {
     return <div></div>;
   }
 
