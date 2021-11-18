@@ -64,7 +64,9 @@ export default function ChatSettingsModal({
         <Slider
           max={1}
           value={tempature}
-          onChangeCommitted={(_, value) => { setTempature(value) }}
+          onChangeCommitted={(_, value) => {
+            setTempature(value);
+          }}
           aria-label="Tempature"
           valueLabelDisplay="auto"
         />

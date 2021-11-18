@@ -49,17 +49,19 @@ export default function ChatBox({
         onClose={handleClose}
         MenuListProps={{ "aria-labelledby": "basic-button" }}
       >
-        {speakers !== undefined ? speakers.map((speaker: any) => (
-          <MenuItem
-            onClick={() => {
-              setActiveSpeaker(speaker)
-              handleClose()
-            }}
-            value={speaker}
-          >
-            {speaker}
-          </MenuItem>
-        )) : null}
+        {speakers !== undefined && speakers !== null
+          ? speakers.map((speaker: any) => (
+              <MenuItem
+                onClick={() => {
+                  setActiveSpeaker(speaker);
+                  handleClose();
+                }}
+                value={speaker}
+              >
+                {speaker}
+              </MenuItem>
+            ))
+          : null}
       </Menu>
       <InputBase
         sx={{ ml: 1, flex: 1 }}

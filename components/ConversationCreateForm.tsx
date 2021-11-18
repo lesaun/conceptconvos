@@ -25,7 +25,7 @@ const style = {
   width: 500,
 };
 
-export default function ConversationCreateForm({}: any) {
+export default function ConversationCreateForm() {
   const [tempature, setTempature] = React.useState(0.7);
   const [speakers, setSpeakers] = React.useState<readonly string[]>([]);
   const [title, setTitle] = React.useState<string>("");
@@ -76,7 +76,7 @@ export default function ConversationCreateForm({}: any) {
           label="Default User Speaker"
           onChange={(event) => setDefaultUserSpeaker(event.target.value)}
         >
-          {speakers.map((speaker) => (
+          {(speakers !== undefined && speakers !== null ? speakers : []).map((speaker) => (
             <MenuItem value={speaker}>{speaker}</MenuItem>
           ))}
         </Select>
@@ -114,15 +114,16 @@ export default function ConversationCreateForm({}: any) {
       <Button
         aria-label={"submit create"}
         onClick={() =>
-          defaultUserSpeaker !== null && title !== "" && speakers.length !== 0 ?
-          DataStore.save(
-            new Conversation({
-              title,
-              speakers: [...speakers],
-              defaultUserSpeaker: defaultUserSpeaker,
-              tempature: tempature,
-            })
-          ) : null
+          defaultUserSpeaker !== null && title !== "" && speakers.length !== 0
+            ? DataStore.save(
+                new Conversation({
+                  title,
+                  speakers: [...speakers],
+                  defaultUserSpeaker: defaultUserSpeaker,
+                  tempature: tempature,
+                })
+              )
+            : null
         }
       >
         Create
