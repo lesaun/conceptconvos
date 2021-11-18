@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 import Amplify, { API } from "aws-amplify";
 import {AmplifyAuthenticator, AmplifySignOut} from "@aws-amplify/ui-react";
 import awsconfig from "../aws-exports";
+import Link from 'next/link'
 
 Amplify.configure(awsconfig);
 
@@ -23,9 +24,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 }
 */
 
+
+
+  
+
 const Home: NextPage = () => {
   return (
     <AmplifyAuthenticator>
+      <div>
+      <h2>
+        <Link href="/converse">
+          <a>Converse</a>
+        </Link>
+      </h2>
+      </div>
       <div>
         <Head>
           <title>conceptconvos</title>
