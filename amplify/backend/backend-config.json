@@ -75,31 +75,17 @@
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "conceptconvossay",
+          "resourceName": "requestai",
           "attributes": [
             "Name",
             "Arn"
-          ]
-        },
-        {
-          "category": "auth",
-          "resourceName": "conceptconvosf36a0210",
-          "attributes": [
-            "UserPoolId"
-          ]
-        },
-        {
-          "category": "auth",
-          "resourceName": "userPoolGroups",
-          "attributes": [
-            "adminGroupRole"
           ]
         }
       ]
     }
   },
   "function": {
-    "conceptconvossay": {
+    "requestai": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",

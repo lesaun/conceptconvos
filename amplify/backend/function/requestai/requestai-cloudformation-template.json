@@ -66,12 +66,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "conceptconvossay",
+            "requestai",
             {
               "Fn::Join": [
                 "",
                 [
-                  "conceptconvossay",
+                  "requestai",
                   "-",
                   {
                     "Ref": "env"
@@ -115,7 +115,7 @@
                         "env": {
                           "Ref": "env"
                         },
-                        "functionName": "conceptconvossay"
+                        "functionName": "requestai"
                       }
                     ]
                   },
@@ -142,12 +142,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "conceptconvosLambdaRole4db7675b",
+            "conceptconvosLambdaRolea86dc7ab",
             {
               "Fn::Join": [
                 "",
                 [
-                  "conceptconvosLambdaRole4db7675b",
+                  "conceptconvosLambdaRolea86dc7ab",
                   "-",
                   {
                     "Ref": "env"
@@ -386,7 +386,7 @@
                           "env": {
                             "Ref": "env"
                           },
-                          "functionName": "conceptconvossay"
+                          "functionName": "requestai"
                         }
                       ]
                     },

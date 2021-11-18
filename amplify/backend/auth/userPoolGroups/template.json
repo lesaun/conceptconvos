@@ -41,15 +41,15 @@
     },
     "Resources": {
     
-        "adminGroup": {
+        "adminsGroup": {
           "Type" : "AWS::Cognito::UserPoolGroup",
           "Properties" : {
-              "GroupName" : "admin",
+              "GroupName" : "admins",
               "Precedence" : 1,
               
               "RoleArn" : {
                 "Fn::GetAtt": [
-                    "adminGroupRole",
+                    "adminsGroupRole",
                     "Arn"
                 ]
               },
@@ -60,7 +60,7 @@
             }
         },
         
-        "adminGroupRole": {
+        "adminsGroupRole": {
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName":{
@@ -70,7 +70,7 @@
                           {
                             "Ref": "authconceptconvosf36a0210UserPoolId"
                           },
-                          "-adminGroupRole"
+                          "-adminsGroupRole"
                         ]
                     ]
                 },
@@ -297,10 +297,10 @@
     
     "Outputs": {
       
-        "adminGroupRole": {
+        "adminsGroupRole": {
             "Value": {
                 "Fn::GetAtt": [
-                    "adminGroupRole",
+                    "adminsGroupRole",
                     "Arn"
                 ]
             }

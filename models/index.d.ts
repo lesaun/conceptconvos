@@ -20,6 +20,9 @@ export declare class Conversation {
   readonly id: string;
   readonly lines?: (LineConversation | null)[];
   readonly title?: string;
+  readonly speakers?: (string | null)[];
+  readonly defaultUserSpeaker?: string;
+  readonly tempature?: number;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Conversation, ConversationMetaData>);
@@ -38,8 +41,9 @@ export declare class LineConversation {
 
 export declare class Line {
   readonly id: string;
-  readonly conversation?: (LineConversation | null)[];
+  readonly conversations?: (LineConversation | null)[];
   readonly text?: string;
+  readonly speaker?: string;
   readonly createdAt?: string;
   readonly updatedAt?: string;
   constructor(init: ModelInit<Line, LineMetaData>);

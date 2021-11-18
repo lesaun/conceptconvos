@@ -8,31 +8,15 @@
         },
     
     
-          "functionconceptconvossayName": {
+          "functionrequestaiName": {
             "Type": "String",
-            "Default": "functionconceptconvossayName"
+            "Default": "functionrequestaiName"
           },
 
           
-          "functionconceptconvossayArn": {
+          "functionrequestaiArn": {
             "Type": "String",
-            "Default": "functionconceptconvossayArn"
-          },
-
-          
-          
-    
-          "authconceptconvosf36a0210UserPoolId": {
-            "Type": "String",
-            "Default": "authconceptconvosf36a0210UserPoolId"
-          },
-
-          
-          
-    
-          "authuserPoolGroupsadminGroupRole": {
-            "Type": "String",
-            "Default": "authuserPoolGroupsadminGroupRole"
+            "Default": "functionrequestaiArn"
           }
 
           
@@ -51,375 +35,6 @@
     },
     "Resources": {
         
-        
-          
-          
-          "adminGroupapirequestaiPolicy": {
-          "DependsOn": [
-              "api2a6401ae"
-            ],
-          "Type": "AWS::IAM::Policy",
-          "Properties": {
-              "PolicyName": "api2a6401ae-apirequestai-admin-group-policy",
-              "Roles": [
-                {
-                    "Fn::Join": [
-                        "",
-                        [
-                          {
-                            "Ref": "authconceptconvosf36a0210UserPoolId"
-                          },
-                          "-adminGroupRole"
-                        ]
-                    ]
-                }
-              ],
-              "PolicyDocument": {
-                "Version": "2012-10-17",
-                "Statement": [
-                  {
-                    "Effect": "Allow",
-                    "Action": [
-                      "execute-api:Invoke"
-                    ],
-                     "Resource": [
-
-                    
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:aws:execute-api:",
-                            {
-                              "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                              "Ref": "AWS::AccountId"
-                            },
-                            ":",
-                            {
-                              "Ref": "api2a6401ae"
-                            },
-                            "/",
-                            {
-                              "Fn::If": [
-                                "ShouldNotCreateEnvResources",
-                                "Prod",
-                                {
-                                  "Ref": "env"
-                                }
-                              ]
-                            },
-                              "/POST",
-                            "/api/requestai/*"
-                          ]
-                        ]
-                      },
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:aws:execute-api:",
-                            {
-                              "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                              "Ref": "AWS::AccountId"
-                            },
-                            ":",
-                            {
-                              "Ref": "api2a6401ae"
-                            },
-                            "/",
-                            {
-                              "Fn::If": [
-                                "ShouldNotCreateEnvResources",
-                                "Prod",
-                                {
-                                  "Ref": "env"
-                                }
-                              ]
-                            },
-                              "/POST",
-                            "/api/requestai"
-                          ]
-                        ]
-                      }
-                    
-                      ,
-                    
-                    
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:aws:execute-api:",
-                            {
-                              "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                              "Ref": "AWS::AccountId"
-                            },
-                            ":",
-                            {
-                              "Ref": "api2a6401ae"
-                            },
-                            "/",
-                            {
-                              "Fn::If": [
-                                "ShouldNotCreateEnvResources",
-                                "Prod",
-                                {
-                                  "Ref": "env"
-                                }
-                              ]
-                            },
-                              "/GET",
-                            "/api/requestai/*"
-                          ]
-                        ]
-                      },
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:aws:execute-api:",
-                            {
-                              "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                              "Ref": "AWS::AccountId"
-                            },
-                            ":",
-                            {
-                              "Ref": "api2a6401ae"
-                            },
-                            "/",
-                            {
-                              "Fn::If": [
-                                "ShouldNotCreateEnvResources",
-                                "Prod",
-                                {
-                                  "Ref": "env"
-                                }
-                              ]
-                            },
-                              "/GET",
-                            "/api/requestai"
-                          ]
-                        ]
-                      }
-                    
-                      ,
-                    
-                    
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:aws:execute-api:",
-                            {
-                              "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                              "Ref": "AWS::AccountId"
-                            },
-                            ":",
-                            {
-                              "Ref": "api2a6401ae"
-                            },
-                            "/",
-                            {
-                              "Fn::If": [
-                                "ShouldNotCreateEnvResources",
-                                "Prod",
-                                {
-                                  "Ref": "env"
-                                }
-                              ]
-                            },
-                              "/PUT",
-                            "/api/requestai/*"
-                          ]
-                        ]
-                      },
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:aws:execute-api:",
-                            {
-                              "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                              "Ref": "AWS::AccountId"
-                            },
-                            ":",
-                            {
-                              "Ref": "api2a6401ae"
-                            },
-                            "/",
-                            {
-                              "Fn::If": [
-                                "ShouldNotCreateEnvResources",
-                                "Prod",
-                                {
-                                  "Ref": "env"
-                                }
-                              ]
-                            },
-                              "/PUT",
-                            "/api/requestai"
-                          ]
-                        ]
-                      }
-                    
-                      ,
-                    
-                    
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:aws:execute-api:",
-                            {
-                              "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                              "Ref": "AWS::AccountId"
-                            },
-                            ":",
-                            {
-                              "Ref": "api2a6401ae"
-                            },
-                            "/",
-                            {
-                              "Fn::If": [
-                                "ShouldNotCreateEnvResources",
-                                "Prod",
-                                {
-                                  "Ref": "env"
-                                }
-                              ]
-                            },
-                              "/PATCH",
-                            "/api/requestai/*"
-                          ]
-                        ]
-                      },
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:aws:execute-api:",
-                            {
-                              "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                              "Ref": "AWS::AccountId"
-                            },
-                            ":",
-                            {
-                              "Ref": "api2a6401ae"
-                            },
-                            "/",
-                            {
-                              "Fn::If": [
-                                "ShouldNotCreateEnvResources",
-                                "Prod",
-                                {
-                                  "Ref": "env"
-                                }
-                              ]
-                            },
-                              "/PATCH",
-                            "/api/requestai"
-                          ]
-                        ]
-                      }
-                    
-                      ,
-                    
-                    
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:aws:execute-api:",
-                            {
-                              "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                              "Ref": "AWS::AccountId"
-                            },
-                            ":",
-                            {
-                              "Ref": "api2a6401ae"
-                            },
-                            "/",
-                            {
-                              "Fn::If": [
-                                "ShouldNotCreateEnvResources",
-                                "Prod",
-                                {
-                                  "Ref": "env"
-                                }
-                              ]
-                            },
-                              "/DELETE",
-                            "/api/requestai/*"
-                          ]
-                        ]
-                      },
-                      {
-                        "Fn::Join": [
-                          "",
-                          [
-                            "arn:aws:execute-api:",
-                            {
-                              "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                              "Ref": "AWS::AccountId"
-                            },
-                            ":",
-                            {
-                              "Ref": "api2a6401ae"
-                            },
-                            "/",
-                            {
-                              "Fn::If": [
-                                "ShouldNotCreateEnvResources",
-                                "Prod",
-                                {
-                                  "Ref": "env"
-                                }
-                              ]
-                            },
-                              "/DELETE",
-                            "/api/requestai"
-                          ]
-                        ]
-                      }
-                    
-                    
-                    ]
-                  }
-                ]
-              }
-            }
-          },
-          
         
         
       "api2a6401ae": {
@@ -467,7 +82,7 @@
             ],
             "paths": {
               
-              "/api/requestai": {
+              "/requestai": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -559,7 +174,7 @@
                             
                             {
 
-                                "Ref": "functionconceptconvossayArn"
+                                "Ref": "functionrequestaiArn"
                             },
                             
                             "/invocations"
@@ -572,7 +187,7 @@
                   }
                 }
               },
-              "/api/requestai/{proxy+}": {
+              "/requestai/{proxy+}": {
                 "options": {
                   "consumes": [
                     "application/json"
@@ -664,7 +279,7 @@
                           
                           {
 
-                            "Ref": "functionconceptconvossayArn"
+                            "Ref": "functionrequestaiArn"
                           },
                           
                           "/invocations"
@@ -721,12 +336,12 @@
       
         
 
-        "functionconceptconvossayPermissionapi2a6401ae": {
+        "functionrequestaiPermissionapi2a6401ae": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functionconceptconvossayName"
+                        "Ref":  "functionrequestaiName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
@@ -756,7 +371,7 @@
         
         
 
-      "DeploymentAPIGWapi2a6401aea49a200e": {
+      "DeploymentAPIGWapi2a6401aeb109bcf9": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",

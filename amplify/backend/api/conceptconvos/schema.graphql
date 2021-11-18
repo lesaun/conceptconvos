@@ -1,26 +1,30 @@
 type Conversation
   @model
-  @auth(rules: [{ allow: owner }, { allow: groups, groups: ["admin"] }]) {
+  @auth(rules: [{ allow: private }]) {
   id: ID!
   lines: [LineConversation]
     @connection(keyName: "byConversation", fields: ["id"])
   title: String
+  speakers: [String]
+  defaultUserSpeaker: String
+  tempature: Float
 }
 
 type Line
   @model
-  @auth(rules: [{ allow: owner }, { allow: groups, groups: ["admin"] }]) {
+  @auth(rules: [{ allow: private }]) {
   id: ID!
-  conversation: [LineConversation]
+  conversations: [LineConversation]
     @connection(keyName: "byLine", fields: ["id"])
   text: String
+  speaker: String
 }
 
 type LineConversation
   @model(queries: null)
   @key(name: "byLine", fields: ["lineID", "conversationID"])
   @key(name: "byConversation", fields: ["conversationID", "lineID"])
-  @auth(rules: [{ allow: owner }, { allow: groups, groups: ["admin"] }]) {
+  @auth(rules: [{ allow: private }]) {
   id: ID!
   lineID: ID!
   conversationID: ID!

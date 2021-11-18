@@ -1,31 +1,30 @@
 {
     "paths": [
         {
-            "name": "/api/requestai",
-            "lambdaFunction": "conceptconvossay",
+            "name": "/requestai",
+            "lambdaFunction": "requestai",
             "privacy": {
-                "userPoolGroups": {
-                    "admin": [
-                        "/POST",
-                        "/GET",
-                        "/PUT",
-                        "/PATCH",
-                        "/DELETE"
-                    ]
-                }
+                "private": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
             },
-            "policyResourceName": "/api/requestai"
+            "policyResourceName": "/requestai"
         }
     ],
     "resourceName": "api2a6401ae",
     "apiName": "api2a6401ae",
     "functionArns": [
         {
-            "lambdaFunction": "conceptconvossay"
+            "lambdaFunction": "requestai"
         }
     ],
     "privacy": {
-        "auth": 0,
+        "auth": 2,
         "unauth": 0,
         "authRoleName": "amplify-conceptconvos-staging-33627-authRole",
         "unAuthRoleName": "amplify-conceptconvos-staging-33627-unauthRole"
@@ -33,27 +32,13 @@
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "conceptconvossay",
+            "resourceName": "requestai",
             "attributes": [
                 "Name",
                 "Arn"
             ]
-        },
-        {
-            "category": "auth",
-            "resourceName": "conceptconvosf36a0210",
-            "attributes": [
-                "UserPoolId"
-            ]
-        },
-        {
-            "category": "auth",
-            "resourceName": "userPoolGroups",
-            "attributes": [
-                "adminGroupRole"
-            ]
         }
     ],
-    "uuid": "a49a200e",
+    "uuid": "b109bcf9",
     "authResourceName": "conceptconvosf36a0210"
 }

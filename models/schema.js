@@ -31,6 +31,28 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "speakers": {
+                    "name": "speakers",
+                    "isArray": true,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": [],
+                    "isArrayNullable": true
+                },
+                "defaultUserSpeaker": {
+                    "name": "defaultUserSpeaker",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "tempature": {
+                    "name": "tempature",
+                    "isArray": false,
+                    "type": "Float",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -60,17 +82,12 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "groupClaim": "cognito:groups",
-                                "provider": "userPools",
-                                "allow": "groups",
-                                "groups": [
-                                    "admin"
-                                ],
+                                "allow": "private",
                                 "operations": [
-                                    "read",
                                     "create",
                                     "update",
-                                    "delete"
+                                    "delete",
+                                    "read"
                                 ]
                             }
                         ]
@@ -165,31 +182,12 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "groupClaim": "cognito:groups",
-                                "provider": "userPools",
-                                "allow": "groups",
-                                "groups": [
-                                    "admin"
-                                ],
+                                "allow": "private",
                                 "operations": [
-                                    "read",
                                     "create",
                                     "update",
-                                    "delete"
-                                ]
-                            },
-                            {
-                                "groupClaim": "cognito:groups",
-                                "provider": "userPools",
-                                "allow": "groups",
-                                "groups": [
-                                    "admin"
-                                ],
-                                "operations": [
-                                    "read",
-                                    "create",
-                                    "update",
-                                    "delete"
+                                    "delete",
+                                    "read"
                                 ]
                             }
                         ]
@@ -207,8 +205,8 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "conversation": {
-                    "name": "conversation",
+                "conversations": {
+                    "name": "conversations",
                     "isArray": true,
                     "type": {
                         "model": "LineConversation"
@@ -223,6 +221,13 @@ export const schema = {
                 },
                 "text": {
                     "name": "text",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "speaker": {
+                    "name": "speaker",
                     "isArray": false,
                     "type": "String",
                     "isRequired": false,
@@ -257,17 +262,12 @@ export const schema = {
                     "properties": {
                         "rules": [
                             {
-                                "groupClaim": "cognito:groups",
-                                "provider": "userPools",
-                                "allow": "groups",
-                                "groups": [
-                                    "admin"
-                                ],
+                                "allow": "private",
                                 "operations": [
-                                    "read",
                                     "create",
                                     "update",
-                                    "delete"
+                                    "delete",
+                                    "read"
                                 ]
                             }
                         ]
@@ -278,5 +278,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "ed71613e38bdded9ef4017cbd56266e7"
+    "version": "3b8fc557c5b2f8d8153dba958265ebe5"
 };
