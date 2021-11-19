@@ -1,17 +1,19 @@
+import React, { useEffect, useState } from "react";
+import Amplify, { DataStore, Predicates } from "aws-amplify";
+
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "../styles/Converse.module.css";
 
-import Amplify, { API, DataStore, Predicates } from "aws-amplify";
-import { AmplifyAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
+import { AmplifyAuthenticator } from "@aws-amplify/ui-react";
 import awsconfig from "../aws-exports";
 
 import ChatActions from "../components/converse/ChatActions";
+import ConversationCreateForm from "../components/converse/ConversationCreateForm";
 import ChatWindow from "../components/converse/ChatWindow";
 import ConversationList from "../components/converse/ConversationList";
+
+import styles from "../styles/Converse.module.css";
 import { Conversation } from "../models";
-import React, { useEffect, useState } from "react";
-import ConversationCreateForm from "../components/converse/ConversationCreateForm";
 
 Amplify.configure(awsconfig);
 
