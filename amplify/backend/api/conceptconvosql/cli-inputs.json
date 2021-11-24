@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "conceptconvosql",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\table\\OneDrive\\Documents\\Concept_Convos\\conceptconvos\\amplify\\backend\\api\\conceptconvosql\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authconceptconvos8baf4dd9"
+    }
+  }
+}

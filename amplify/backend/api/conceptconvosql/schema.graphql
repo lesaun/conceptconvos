@@ -1,0 +1,20 @@
+type Conversation @model @auth(rules: [{ allow: private }]) {
+  id: ID!
+  title: String
+  speakers: [String]
+  defaultUserSpeaker: String
+  tempature: Float
+
+  lines: [Line] @hasMany(indexName: "byConversation", fields: ["id"])
+}
+
+type Line @model @auth(rules: [{ allow: private }]) {
+  id: ID!
+  text: String
+  temp: String
+  speaker: String
+  createdAt: String!
+
+  conversationID: ID! @index(name: "byConversation", sortKeyFields: ["createdAt"])
+  conversation: Conversation @belongsTo(fields: ["conversationID"])
+}

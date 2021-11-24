@@ -6,12 +6,12 @@
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
-    "framework": "react",
+    "framework": "none",
     "config": {
-      "SourceDir": ".",
-      "DistributionDir": "build",
-      "BuildCommand": "npm run-script build",
-      "StartCommand": "npm run-script start"
+      "SourceDir": "",
+      "DistributionDir": "dist",
+      "BuildCommand": "",
+      "StartCommand": "npm.cmd run-script start"
     }
   }
 }
