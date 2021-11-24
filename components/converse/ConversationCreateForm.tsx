@@ -27,12 +27,10 @@ const style = {
 
 export default function ConversationCreateForm() {
   const [tempature, setTempature] = React.useState(0.7);
-  const [speakers, setSpeakers] = React.useState<readonly string[]>([]);
+  const [speakers, setSpeakers] = React.useState<readonly string[]>([""]);
   const [title, setTitle] = React.useState<string>("");
   const [newSpeaker, setNewSpeaker] = React.useState<string>("");
-  const [defaultUserSpeaker, setDefaultUserSpeaker] = React.useState<
-    string | null
-  >(null);
+  const [defaultUserSpeaker, setDefaultUserSpeaker] = React.useState<string>("");
 
   const handleDelete = (chipToDelete: string) => () => {
     setSpeakers((chips) => chips.filter((chip) => chip !== chipToDelete));
@@ -93,10 +91,10 @@ export default function ConversationCreateForm() {
         }}
         component="ul"
       >
-        {speakers.map((data) => {
+        {speakers.map((speaker) => {
           return (
-            <ListItem key={data}>
-              <Chip label={data} onDelete={handleDelete(data)} />
+            <ListItem key={`chips${speaker}`}>
+              <Chip label={speaker} onDelete={handleDelete(speaker)} />
             </ListItem>
           );
         })}

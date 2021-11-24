@@ -43,7 +43,7 @@ const ChatWindow = ({ lineConversations, activeSpeaker }: Props) => {
 
   useEffect(() => {
     scrollToBottom()
-  }, [lineConversations]);
+  }, []);
 
   return (
     <div style={{maxHeight: "calc(100% - 64px)", overflow: "scroll"}}>
