@@ -1,7 +1,8 @@
 // A react component that renders a chat window with different colors for speakers and left and right sides.
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Paper from "@mui/material/Paper";
-import { Conversation } from "../../models";
+import { LineConversation, Conversation, Line } from "../../models";
+import { DataStore } from "aws-amplify";
 
 const Chat = ({ align, text, color }: any) => {
   return (
@@ -29,27 +30,37 @@ const Chat = ({ align, text, color }: any) => {
 };
 
 interface Props {
-  conversation: Conversation | undefined;
   activeSpeaker: String | undefined;
+  lineConversations: LineConversation[];
 }
 
-const ChatWindow = ({ conversation, activeSpeaker }: Props) => {
+const ChatWindow = ({ lineConversations, activeSpeaker }: Props) => {
+  const el = useRef<null | HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    el.current?.scrollIntoView()
+  }
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [lineConversations]);
+
   return (
-    <div>
-      {conversation !== undefined && activeSpeaker !== undefined
-        ? conversation.lines !== undefined
-          ? conversation.lines.map((conversationLine, i: number) =>
-              conversationLine ? (
+    <div style={{maxHeight: "calc(100% - 64px)", overflow: "scroll"}}>
+      {activeSpeaker !== undefined
+        ? lineConversations !== undefined
+          ? lineConversations.map((lineConversation, i: number) =>
+              lineConversation ? (
                 <Chat
-                  key={conversationLine.line.speaker + i.toString()}
+                  key={lineConversation.line.speaker + i.toString()}
                   align={
-                    conversationLine.line.speaker === activeSpeaker
+                    lineConversation.line.speaker === activeSpeaker
                       ? "left"
                       : "right"
                   }
-                  text={conversationLine.line.text}
+                  text={lineConversation.line.text}
                   color={
-                    conversationLine.line.speaker === activeSpeaker
+                    lineConversation.line.speaker === activeSpeaker
                       ? "white"
                       : "lightgreen"
                   }
@@ -58,6 +69,7 @@ const ChatWindow = ({ conversation, activeSpeaker }: Props) => {
             )
           : null
         : null}
+        <div ref={el} />
     </div>
   );
 };

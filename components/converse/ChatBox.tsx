@@ -9,13 +9,6 @@ import Menu from "@mui/material/Menu";
 import { Conversation, Line, LineConversation } from "../../models";
 import { DataStore } from "aws-amplify";
 
-interface Props {
-  speakers: (string | null)[] | undefined;
-  activeSpeaker: string | undefined;
-  setActiveSpeaker: React.Dispatch<React.SetStateAction<string | undefined>>;
-  conversation: Conversation;
-}
-
 const saveLine = async (conversation: Conversation, text: string, activeSpeaker: string) => {
   const line = await DataStore.save(
     new Line({
@@ -32,6 +25,13 @@ const saveLine = async (conversation: Conversation, text: string, activeSpeaker:
   );
 };
 
+interface Props {
+  speakers: (string | null)[] | undefined;
+  activeSpeaker: string | undefined;
+  setActiveSpeaker: React.Dispatch<React.SetStateAction<string | undefined>>;
+  conversation: Conversation;
+}
+
 export default function ChatBox({
   speakers,
   activeSpeaker,
@@ -40,14 +40,21 @@ export default function ChatBox({
 }: Props) {
   const [text, setText] = React.useState("");
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const sendText = () => {
+    if (activeSpeaker === undefined) { return }
+    saveLine(conversation, text, activeSpeaker)
+    setText("")
+  }
 
   return (
     <Paper
@@ -87,11 +94,17 @@ export default function ChatBox({
       <InputBase
         value={text}
         onChange={(e) => setText(e.target.value)}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') {
+            sendText();
+            e.preventDefault();
+          }
+        }}
         sx={{ ml: 1, flex: 1 }}
         inputProps={{ "aria-label": "speak as speaker" }}
       />
       <IconButton color="primary"
-       onClick={() => activeSpeaker !== undefined ? saveLine(conversation, text, activeSpeaker) : null}
+       onClick={sendText}
        sx={{ p: "10px" }} aria-label="Send Chat">
         <SendIcon />
       </IconButton>
