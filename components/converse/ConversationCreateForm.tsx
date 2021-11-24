@@ -77,7 +77,7 @@ export default function ConversationCreateForm() {
           onChange={(event) => setDefaultUserSpeaker(event.target.value)}
         >
           {(speakers !== undefined && speakers !== null ? speakers : []).map((speaker) => (
-            <MenuItem value={speaker}>{speaker}</MenuItem>
+            <MenuItem key={`default${speaker}`} value={speaker}>{speaker}</MenuItem>
           ))}
         </Select>
       </FormControl>

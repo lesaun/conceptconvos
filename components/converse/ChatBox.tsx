@@ -80,6 +80,7 @@ export default function ChatBox({
         {speakers !== undefined && speakers !== null
           ? speakers.map((speaker: any) => (
               <MenuItem
+                key={`sayas${speaker}`}
                 onClick={() => {
                   setActiveSpeaker(speaker);
                   handleClose();

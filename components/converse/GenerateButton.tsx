@@ -37,7 +37,7 @@ export default function GenerateButton({ speakers }: any) {
         }}
       >
         {speakers.map((speaker: any) => (
-          <MenuItem onClick={handleClose} value={speaker}>
+          <MenuItem key={`generateas${speaker}`} onClick={handleClose} value={speaker}>
             {speaker}
           </MenuItem>
         ))}

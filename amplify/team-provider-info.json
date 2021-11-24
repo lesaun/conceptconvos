@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-conceptconvos-staging-33627-unauthRole",
       "StackName": "amplify-conceptconvos-staging-33627",
       "StackId": "arn:aws:cloudformation:us-west-2:070960731425:stack/amplify-conceptconvos-staging-33627/6332cb10-41d7-11ec-bc0a-06b7270bc73d",
-      "AmplifyAppId": "d3udxqjrc34mni"
+      "AmplifyAppId": "d3udxqjrc34mni",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-conceptconvos-staging-33627-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
@@ -20,7 +21,7 @@
         "requestai": {
           "secretsPathAmplifyAppId": "d3udxqjrc34mni",
           "deploymentBucketName": "amplify-conceptconvos-staging-33627-deployment",
-          "s3Key": "amplify-builds/requestai-453775326d705142702b-build.zip"
+          "s3Key": "amplify-builds/requestai-5a3063444c7975585a4c-build.zip"
         }
       }
     }

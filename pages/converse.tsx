@@ -62,7 +62,7 @@ const Converse: NextPage = () => {
       setConversationById({ ...conversationById, ...newItemsById })
     });
     return () => subscription.unsubscribe();
-  }, []);
+  }, [conversationById]);
 
   useEffect(() => {
     const subscription = DataStore.observeQuery(
@@ -76,7 +76,7 @@ const Converse: NextPage = () => {
       setLineById({ ...lineById, ...newItemsById })
     });
     return () => subscription.unsubscribe();
-  }, []);
+  }, [lineById]);
 
   useEffect(() => {
     const subscription = DataStore.observeQuery(

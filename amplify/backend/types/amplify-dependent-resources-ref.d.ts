@@ -14,6 +14,10 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "api": {
+        "conceptconvos": {
+            "GraphQLAPIIdOutput": "string",
+            "GraphQLAPIEndpointOutput": "string"
+        },
         "api2a6401ae": {
             "RootUrl": "string",
             "ApiName": "string",
