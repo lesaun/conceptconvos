@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -20,12 +21,18 @@ export default function ConversationList({
     >
       <List component="nav" aria-label="main mailbox folders">
         {conversations.map((conversation) => (
-          <ListItemButton
+          <Link
             key={conversation.id}
-            selected={selectedConversationId === conversation.id}
+            href={{ pathname: "/[id]", query: { id: conversation.id } }}
+            passHref
           >
-            <ListItemText primary={conversation.title} />
-          </ListItemButton>
+            <ListItemButton
+              component="a"
+              selected={selectedConversationId === conversation.id}
+            >
+              <ListItemText primary={conversation.title} />
+            </ListItemButton>
+          </Link>
         ))}
       </List>
       <div
@@ -34,7 +41,9 @@ export default function ConversationList({
           justifyContent: "center",
         }}
       >
-        <Button>New Conversation</Button>
+        <Link href={{ pathname: "/" }} passHref>
+          <Button component="a">New Conversation</Button>
+        </Link>
       </div>
     </Box>
   );
