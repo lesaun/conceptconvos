@@ -31,15 +31,15 @@ const ChatWindow = ({ conversationLines, activeSpeaker }) => {
   const el = useRef(null);
 
   const scrollToBottom = () => {
-    el.current?.scrollIntoView()
-  }
+    el.current?.scrollIntoView();
+  };
 
   useEffect(() => {
-    scrollToBottom()
+    scrollToBottom();
   }, [conversationLines]);
 
   return (
-    <div style={{maxHeight: "calc(100% - 64px)", overflow: "scroll"}}>
+    <div style={{ maxHeight: "calc(100% - 64px)", overflow: "scroll" }}>
       {activeSpeaker !== undefined
         ? conversationLines !== undefined
           ? conversationLines.map((conversationLines, i) =>
@@ -62,7 +62,7 @@ const ChatWindow = ({ conversationLines, activeSpeaker }) => {
             )
           : null
         : null}
-        <div ref={el} />
+      <div ref={el} />
     </div>
   );
 };

@@ -20,7 +20,13 @@ const style = {
   p: 4,
 };
 
-export default function ChatSettingsModal({ speakers, tempature, setTempature, open, handleClose, }) {
+export default function ChatSettingsModal({
+  speakers,
+  tempature,
+  setTempature,
+  open,
+  handleClose,
+}) {
   const [chipData, setChipData] = React.useState(speakers);
 
   const handleDelete = (chipToDelete) => () => {

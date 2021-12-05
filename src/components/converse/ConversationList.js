@@ -5,7 +5,10 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { Button } from "@mui/material";
 
-export default function ConversationList({ conversations, selectedConversationId }) {
+export default function ConversationList({
+  conversations,
+  selectedConversationId,
+}) {
   return (
     <Box
       sx={{
@@ -35,4 +38,4 @@ export default function ConversationList({ conversations, selectedConversationId
       </div>
     </Box>
   );
-};
+}

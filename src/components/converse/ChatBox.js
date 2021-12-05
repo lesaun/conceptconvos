@@ -7,11 +7,16 @@ import { MenuItem } from "@mui/material";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 
-import { API, graphqlOperation } from 'aws-amplify';
+import { API, graphqlOperation } from "aws-amplify";
 
-import * as mutations from 'src/graphql/mutations';
+import * as mutations from "src/graphql/mutations";
 
-export default function ChatBox({ speakers, activeSpeaker, setActiveSpeaker, conversation }) {
+export default function ChatBox({
+  speakers,
+  activeSpeaker,
+  setActiveSpeaker,
+  conversation,
+}) {
   const [text, setText] = React.useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -25,15 +30,20 @@ export default function ChatBox({ speakers, activeSpeaker, setActiveSpeaker, con
   };
 
   const sendText = () => {
-    if (activeSpeaker === undefined) { return }
-    API.graphql(graphqlOperation(mutations.createLine,
-      { input: {
-        conversationID: conversation.id,
-        speaker: activeSpeaker,
-        text
-      }}));
-    setText("")
-  }
+    if (activeSpeaker === undefined) {
+      return;
+    }
+    API.graphql(
+      graphqlOperation(mutations.createLine, {
+        input: {
+          conversationID: conversation.id,
+          speaker: activeSpeaker,
+          text,
+        },
+      })
+    );
+    setText("");
+  };
 
   return (
     <Paper
@@ -75,7 +85,7 @@ export default function ChatBox({ speakers, activeSpeaker, setActiveSpeaker, con
         value={text}
         onChange={(e) => setText(e.target.value)}
         onKeyPress={(e) => {
-          if (e.key === 'Enter') {
+          if (e.key === "Enter") {
             sendText();
             e.preventDefault();
           }
@@ -83,9 +93,12 @@ export default function ChatBox({ speakers, activeSpeaker, setActiveSpeaker, con
         sx={{ ml: 1, flex: 1 }}
         inputProps={{ "aria-label": "speak as speaker" }}
       />
-      <IconButton color="primary"
-       onClick={sendText}
-       sx={{ p: "10px" }} aria-label="Send Chat">
+      <IconButton
+        color="primary"
+        onClick={sendText}
+        sx={{ p: "10px" }}
+        aria-label="Send Chat"
+      >
         <SendIcon />
       </IconButton>
     </Paper>

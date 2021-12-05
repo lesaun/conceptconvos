@@ -1,4 +1,3 @@
-// A react component that renders a chat window with different colors for speakers and left and right sides.
 import React from "react";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";

@@ -4,6 +4,7 @@ import Head from "next/head";
 import { withSSRContext } from "aws-amplify";
 import { getConversation } from "src/graphql/queries";
 import { listConversationsOnlyIdTitle } from "src/graphql/queries-custom";
+import {serializeError} from 'serialize-error';
 
 import produce from "immer";
 import ConversationList from "src/components/converse/ConversationList";
@@ -19,6 +20,8 @@ export async function getServerSideProps({ req, params }) {
 
   let conversation = null;
   let conversationList;
+  let error1 = null;
+  let error2 = null;
 
   if (params !== undefined) {
     try {
@@ -27,7 +30,9 @@ export async function getServerSideProps({ req, params }) {
         authMode: "AMAZON_COGNITO_USER_POOLS",
         variables: { id: params.id },
       });
-    } catch {}
+    } catch (e) {
+      error1 = serializedError(e)
+    }
   }
 
   try {
@@ -35,7 +40,8 @@ export async function getServerSideProps({ req, params }) {
       query: listConversationsOnlyIdTitle,
       authMode: "AMAZON_COGNITO_USER_POOLS",
     });
-  } catch {
+  } catch (e) {
+    error2 = serializedError(e)
     conversationList = [];
   }
 
@@ -43,6 +49,8 @@ export async function getServerSideProps({ req, params }) {
     props: {
       conversation: conversation.data.getConversation,
       conversationList: conversationList.data.listConversations.items,
+      error1,
+      error2
     },
   };
 }
@@ -78,7 +86,9 @@ const reducer = (state, action) => {
   }
 };
 
-export default function Converse({ conversation, conversationList }) {
+export default function Converse({ conversation, conversationList, error1, error2 }) {
+  console.log(error1, error2)
+
   const [conversationState, dispatch] = React.useReducer(reducer, conversation);
 
   React.useEffect(() => {

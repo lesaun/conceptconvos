@@ -1,18 +1,17 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Head from 'next/head';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider } from '@emotion/react';
-import theme from '../theme';
-import createEmotionCache from '../createEmotionCache';
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import * as React from "react";
+import PropTypes from "prop-types";
+import Head from "next/head";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { CacheProvider } from "@emotion/react";
+import theme from "../theme";
+import createEmotionCache from "../createEmotionCache";
+import { withAuthenticator } from "@aws-amplify/ui-react";
 
-import Amplify from 'aws-amplify'
-import awsconfig from '../aws-exports'
+import Amplify from "aws-amplify";
+import awsconfig from "../aws-exports";
 
-
-Amplify.configure({ ...awsconfig, ssr: true })
+Amplify.configure({ ...awsconfig, ssr: true });
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -34,7 +33,7 @@ function MyApp(props) {
   );
 }
 
-export default withAuthenticator(MyApp)
+export default withAuthenticator(MyApp);
 
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
