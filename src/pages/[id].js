@@ -9,8 +9,6 @@ import produce from "immer";
 import ConversationList from "src/components/converse/ConversationList";
 import ChatWindow from "src/components/converse/ChatWindow";
 import ChatActions from "src/components/converse/ChatActions";
-
-import { AmplifyAuthenticator } from '@aws-amplify/ui-react';
 import * as subscriptions from "src/graphql/subscriptions";
 import { API } from "aws-amplify";
 
