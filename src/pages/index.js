@@ -7,12 +7,10 @@ import ConversationList from "src/components/converse/ConversationList";
 import ConversationCreateForm from "src/components/converse/ConversationCreateForm";
 
 import styles from "src/styles/Converse.module.css";
-import { serializeError } from "serialize-error";
 
 export async function getServerSideProps({ req }) {
   const SSR = withSSRContext({ req });
   let conversationList;
-  let error = null
 
   try {
     conversationList = await SSR.API.graphql({
@@ -21,21 +19,17 @@ export async function getServerSideProps({ req }) {
     });
     conversationList = conversationList.data.listConversations.items;
   } catch (e) {
-    error = serializeError(e)
     conversationList = [];
   }
 
   return {
     props: {
-      conversationList,
-      error
+      conversationList
     },
   };
 }
 
-export default function Converse({ conversationList, error }) {
-  console.log(error)
-
+export default function Converse({ conversationList }) {
   if (conversationList == null) {
     return <div></div>;
   }
