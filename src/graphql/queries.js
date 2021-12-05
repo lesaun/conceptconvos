@@ -1,4 +1,3 @@
-/* tslint:disable */
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
@@ -14,7 +13,6 @@ export const getConversation = /* GraphQL */ `
         items {
           id
           text
-          temp
           speaker
           createdAt
           conversationID
@@ -55,7 +53,6 @@ export const getLine = /* GraphQL */ `
     getLine(id: $id) {
       id
       text
-      temp
       speaker
       createdAt
       conversationID
@@ -85,7 +82,6 @@ export const listLines = /* GraphQL */ `
       items {
         id
         text
-        temp
         speaker
         createdAt
         conversationID

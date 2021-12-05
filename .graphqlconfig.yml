@@ -1,15 +1,17 @@
 projects:
   conceptconvosql:
-    schemaPath: src/graphql/schema.json
+    schemaPath: amplify/backend/api/conceptconvosql/build/schema.graphql
     includes:
-      - src/graphql/**/*.ts
+      - src/graphql/**/*.js
     excludes:
       - ./amplify/**
     extensions:
       amplify:
-        codeGenTarget: typescript
-        generatedFileName: src/API.ts
+        codeGenTarget: javascript
+        generatedFileName: ''
         docsFilePath: src/graphql
+        region: us-west-2
+        apiId: null
         maxDepth: 3
 extensions:
   amplify:

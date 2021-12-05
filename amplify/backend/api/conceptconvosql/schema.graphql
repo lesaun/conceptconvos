@@ -11,10 +11,15 @@ type Conversation @model @auth(rules: [{ allow: private }]) {
 type Line @model @auth(rules: [{ allow: private }]) {
   id: ID!
   text: String
-  temp: String
   speaker: String
   createdAt: String!
 
-  conversationID: ID! @index(name: "byConversation", sortKeyFields: ["createdAt"])
+  conversationID: ID!  @index(name: "byConversation", sortKeyFields: ["createdAt"])
   conversation: Conversation @belongsTo(fields: ["conversationID"])
+}
+
+type Subscription {
+  onLineConversationCreate(conversationID: String!): Line @aws_subscribe(mutations: ["createLine"])
+  onLineConversationUpdate(conversationID: String!): Line @aws_subscribe(mutations: ["updateLine"])
+  onLineConversationDelete(conversationID: String!): Line @aws_subscribe(mutations: ["deleteLine"])
 }

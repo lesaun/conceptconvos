@@ -8,10 +8,10 @@
   "javascript": {
     "framework": "none",
     "config": {
-      "SourceDir": "",
+      "SourceDir": "src",
       "DistributionDir": "dist",
       "BuildCommand": "",
-      "StartCommand": "npm.cmd run-script start"
+      "StartCommand": "npm run-script start"
     }
   }
 }

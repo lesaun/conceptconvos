@@ -1,10 +1,12 @@
-/* tslint:disable */
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateConversation = /* GraphQL */ `
-  subscription OnCreateConversation {
-    onCreateConversation {
+export const createConversation = /* GraphQL */ `
+  mutation CreateConversation(
+    $input: CreateConversationInput!
+    $condition: ModelConversationConditionInput
+  ) {
+    createConversation(input: $input, condition: $condition) {
       id
       title
       speakers
@@ -14,7 +16,6 @@ export const onCreateConversation = /* GraphQL */ `
         items {
           id
           text
-          temp
           speaker
           createdAt
           conversationID
@@ -27,9 +28,12 @@ export const onCreateConversation = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateConversation = /* GraphQL */ `
-  subscription OnUpdateConversation {
-    onUpdateConversation {
+export const updateConversation = /* GraphQL */ `
+  mutation UpdateConversation(
+    $input: UpdateConversationInput!
+    $condition: ModelConversationConditionInput
+  ) {
+    updateConversation(input: $input, condition: $condition) {
       id
       title
       speakers
@@ -39,7 +43,6 @@ export const onUpdateConversation = /* GraphQL */ `
         items {
           id
           text
-          temp
           speaker
           createdAt
           conversationID
@@ -52,9 +55,12 @@ export const onUpdateConversation = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteConversation = /* GraphQL */ `
-  subscription OnDeleteConversation {
-    onDeleteConversation {
+export const deleteConversation = /* GraphQL */ `
+  mutation DeleteConversation(
+    $input: DeleteConversationInput!
+    $condition: ModelConversationConditionInput
+  ) {
+    deleteConversation(input: $input, condition: $condition) {
       id
       title
       speakers
@@ -64,7 +70,6 @@ export const onDeleteConversation = /* GraphQL */ `
         items {
           id
           text
-          temp
           speaker
           createdAt
           conversationID
@@ -77,12 +82,14 @@ export const onDeleteConversation = /* GraphQL */ `
     }
   }
 `;
-export const onCreateLine = /* GraphQL */ `
-  subscription OnCreateLine {
-    onCreateLine {
+export const createLine = /* GraphQL */ `
+  mutation CreateLine(
+    $input: CreateLineInput!
+    $condition: ModelLineConditionInput
+  ) {
+    createLine(input: $input, condition: $condition) {
       id
       text
-      temp
       speaker
       createdAt
       conversationID
@@ -102,12 +109,14 @@ export const onCreateLine = /* GraphQL */ `
     }
   }
 `;
-export const onUpdateLine = /* GraphQL */ `
-  subscription OnUpdateLine {
-    onUpdateLine {
+export const updateLine = /* GraphQL */ `
+  mutation UpdateLine(
+    $input: UpdateLineInput!
+    $condition: ModelLineConditionInput
+  ) {
+    updateLine(input: $input, condition: $condition) {
       id
       text
-      temp
       speaker
       createdAt
       conversationID
@@ -127,12 +136,14 @@ export const onUpdateLine = /* GraphQL */ `
     }
   }
 `;
-export const onDeleteLine = /* GraphQL */ `
-  subscription OnDeleteLine {
-    onDeleteLine {
+export const deleteLine = /* GraphQL */ `
+  mutation DeleteLine(
+    $input: DeleteLineInput!
+    $condition: ModelLineConditionInput
+  ) {
+    deleteLine(input: $input, condition: $condition) {
       id
       text
-      temp
       speaker
       createdAt
       conversationID
