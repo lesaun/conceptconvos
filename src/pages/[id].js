@@ -51,6 +51,9 @@ export async function getServerSideProps({ req, params }) {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "replaceFullState": {
+      return produce(state, (_) => action.payload);
+    }
     case "create": {
       return produce(state, (draft) => {
         draft.lines.items.push(action.payload);
@@ -82,6 +85,14 @@ const reducer = (state, action) => {
 
 export default function Converse({ conversation, conversationList }) {
   const [conversationState, dispatch] = React.useReducer(reducer, conversation);
+  const [activeSpeaker, setActiveSpeaker] = useState(
+    conversation.defaultUserSpeaker
+  );
+
+  if (conversationState.id !== conversation.id) {
+    dispatch({ type: "replaceFullState", payload: conversation });
+    setActiveSpeaker(conversation.defaultUserSpeaker)
+  }
 
   React.useEffect(() => {
     const onLineConversationCreateListener = API.graphql({
@@ -128,10 +139,6 @@ export default function Converse({ conversation, conversationList }) {
       onLineConversationDelete.unsubscribe();
     };
   }, [conversation.id]);
-
-  const [activeSpeaker, setActiveSpeaker] = useState(
-    conversation.defaultUserSpeaker
-  );
 
   return (
     <div className={styles.container}>

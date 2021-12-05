@@ -1,7 +1,6 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Chip from "@mui/material/Chip";
-import { DataStore } from "aws-amplify";
 import Paper from "@mui/material/Paper";
 import {
   Box,
@@ -13,6 +12,9 @@ import {
   Slider,
   TextField,
 } from "@mui/material";
+
+import { API, graphqlOperation } from "aws-amplify";
+import * as mutations from "src/graphql/mutations";
 
 const ListItem = styled("li")(({ theme }) => ({
   margin: theme.spacing(0.5),
@@ -115,12 +117,14 @@ export default function ConversationCreateForm() {
         aria-label={"submit create"}
         onClick={() =>
           defaultUserSpeaker !== null && title !== "" && speakers.length !== 0
-            ? DataStore.save(
-                new Conversation({
-                  title,
-                  speakers: [...speakers],
-                  defaultUserSpeaker: defaultUserSpeaker,
-                  tempature: tempature,
+            ? API.graphql(
+                graphqlOperation(mutations.createConversation, {
+                  input: {
+                    title,
+                    speakers,
+                    defaultUserSpeaker,
+                    tempature,
+                  },
                 })
               )
             : null
