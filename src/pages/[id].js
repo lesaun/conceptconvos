@@ -132,30 +132,30 @@ export default function Converse({ conversation, conversationList }) {
   );
 
   return (
-      <div className={styles.container}>
-        <Head>
-          <title>conceptconvos</title>
-          <meta name="description" content="Conversations with concepts." />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+    <div className={styles.container}>
+      <Head>
+        <title>conceptconvos</title>
+        <meta name="description" content="Conversations with concepts." />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-        <main className={styles.main}>
-          <ConversationList
-            conversations={conversationList}
-            selectedConversationId={conversation.id}
+      <main className={styles.main}>
+        <ConversationList
+          conversations={conversationList}
+          selectedConversationId={conversation.id}
+        />
+        <div className={styles.chat}>
+          <ChatWindow
+            activeSpeaker={activeSpeaker}
+            conversationLines={conversationState.lines.items}
           />
-          <div className={styles.chat}>
-            <ChatWindow
-              activeSpeaker={activeSpeaker}
-              conversationLines={conversationState.lines.items}
-            />
-            <ChatActions
-              conversation={conversation}
-              activeSpeaker={activeSpeaker}
-              setActiveSpeaker={setActiveSpeaker}
-            />
-          </div>
-        </main>
-      </div>
+          <ChatActions
+            conversation={conversation}
+            activeSpeaker={activeSpeaker}
+            setActiveSpeaker={setActiveSpeaker}
+          />
+        </div>
+      </main>
+    </div>
   );
 }
