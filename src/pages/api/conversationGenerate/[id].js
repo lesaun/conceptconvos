@@ -3,7 +3,7 @@ import { withSSRContext, graphqlOperation } from "aws-amplify";
 import { getOpenAiCompletion, getConversation } from "src/graphql/queries";
 import { createLine } from "src/graphql/mutations";
 
-import prompt from "./conceptConversationPrompt";
+import prompt from "src/prompts/conceptConversationPrompt";
 
 export default async function handler(req, res) {
   const SSR = withSSRContext({ req });
@@ -39,5 +39,5 @@ export default async function handler(req, res) {
     })
   );
 
-  res.status(200).json(null);
+  res.status(200).json({});
 }
