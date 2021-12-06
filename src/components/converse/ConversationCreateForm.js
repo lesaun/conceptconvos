@@ -35,7 +35,7 @@ export default function ConversationCreateForm() {
                   input: {
                     title,
                     speakers: ["Inquisitor", title],
-                    defaultUserSpeaker: ["Inquisitor"],
+                    defaultUserSpeaker: "Inquisitor",
                     tempature: 0.9,
                   },
                 })

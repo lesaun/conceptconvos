@@ -1,9 +1,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const converseGenerate = /* GraphQL */ `
-  query ConverseGenerate($conversationID: String) {
-    converseGenerate(conversationID: $conversationID)
+export const getOpenAiCompletion = /* GraphQL */ `
+  query GetOpenAiCompletion($prompt: String, $stops: [String]) {
+    getOpenAiCompletion(prompt: $prompt, stops: $stops)
   }
 `;
 export const getConversation = /* GraphQL */ `

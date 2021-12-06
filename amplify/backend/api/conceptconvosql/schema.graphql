@@ -1,5 +1,5 @@
 type Query {
-  converseGenerate(conversationID: String): String @function(name: "converseGenerate-${env}") @auth(rules: [{ allow: private }])
+  getOpenAiCompletion(prompt: String, stops: [String]): String @function(name: "converseGenerate-${env}") @auth(rules: [{ allow: private }])
 }
 
 type Conversation @model @auth(rules: [{ allow: private }]) {

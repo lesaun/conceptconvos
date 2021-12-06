@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 
 export default function GenerateButton({ conversation }) {
   const handleClick = (_) => {
-    fetch(`/api/generateConverse/${conversation.id}`).then((res) => res.json());
+    fetch(`/api/conversationGenerate/${conversation.id}`);
   };
 
   return (
