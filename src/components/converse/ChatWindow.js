@@ -1,5 +1,4 @@
-// A react component that renders a chat window with different colors for speakers and left and right sides.
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import Paper from "@mui/material/Paper";
 
 const Chat = ({ align, text, color }) => {

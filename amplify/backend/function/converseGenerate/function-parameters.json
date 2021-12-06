@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "storage": {
+      "Conversation:@model(appsync)": [
+        "read"
+      ],
+      "Line:@model(appsync)": [
+        "read"
+      ]
+    }
+  },
+  "lambdaLayers": [],
+  "secretNames": [
+    "OPENAI_API_KEY"
+  ]
+}

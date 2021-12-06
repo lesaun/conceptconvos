@@ -14,6 +14,13 @@
     "categories": {
       "auth": {
         "conceptconvos8baf4dd9": {}
+      },
+      "function": {
+        "converseGenerate": {
+          "secretsPathAmplifyAppId": "d3udxqjrc34mni",
+          "deploymentBucketName": "amplify-conceptconvos-staging-33627-deployment",
+          "s3Key": "amplify-builds/converseGenerate-7371454d4d4a62453547-build.zip"
+        }
       }
     }
   }

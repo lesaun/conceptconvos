@@ -8,7 +8,6 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 
 import { API, graphqlOperation } from "aws-amplify";
-
 import * as mutations from "src/graphql/mutations";
 
 export default function ChatBox({

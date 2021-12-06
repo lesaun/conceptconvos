@@ -11,6 +11,7 @@ import styles from "src/styles/Converse.module.css";
 export async function getServerSideProps({ req }) {
   const SSR = withSSRContext({ req });
   let conversationList;
+  let apiResult = null;
 
   try {
     conversationList = await SSR.API.graphql({
@@ -24,7 +25,7 @@ export async function getServerSideProps({ req }) {
 
   return {
     props: {
-      conversationList
+      conversationList,
     },
   };
 }

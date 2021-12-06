@@ -91,7 +91,7 @@ export default function Converse({ conversation, conversationList }) {
 
   if (conversationState.id !== conversation.id) {
     dispatch({ type: "replaceFullState", payload: conversation });
-    setActiveSpeaker(conversation.defaultUserSpeaker)
+    setActiveSpeaker(conversation.defaultUserSpeaker);
   }
 
   React.useEffect(() => {

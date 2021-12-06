@@ -12,7 +12,6 @@ import Amplify from "aws-amplify";
 import awsconfig from "../aws-exports";
 
 Amplify.configure({ ...awsconfig, ssr: true });
-
 const clientSideEmotionCache = createEmotionCache();
 
 function MyApp(props) {
@@ -33,10 +32,10 @@ function MyApp(props) {
   );
 }
 
-export default withAuthenticator(MyApp);
-
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
   emotionCache: PropTypes.object,
   pageProps: PropTypes.object.isRequired,
 };
+
+export default withAuthenticator(MyApp);
