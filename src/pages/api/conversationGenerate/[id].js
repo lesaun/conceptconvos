@@ -29,15 +29,17 @@ export default async function handler(req, res) {
   openAiCompletion = openAiCompletion.data.getOpenAiCompletion;
   openAiCompletion = JSON.parse(openAiCompletion);
 
-  SSR.API.graphql(
-    graphqlOperation(createLine, {
+  SSR.API.graphql({
+    query: createLine,
+    variables: {
       input: {
         conversationID: conversation.id,
         speaker: conversation.title,
         text: openAiCompletion.choices[0].text.trim(),
       },
-    })
-  );
+    },
+    authMode: "AMAZON_COGNITO_USER_POOLS",
+  });
 
   res.status(200).json({});
 }
