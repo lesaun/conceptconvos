@@ -29,7 +29,7 @@ export default function ConversationCreateForm() {
       <Button
         aria-label={"submit create"}
         onClick={() =>
-          defaultUserSpeaker !== null && title !== "" && speakers.length !== 0
+          title.trim() !== ""
             ? API.graphql(
                 graphqlOperation(mutations.createConversation, {
                   input: {
