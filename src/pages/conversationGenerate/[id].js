@@ -21,7 +21,7 @@ export async function getServerSideProps({ req, params }) {
     query: getOpenAiCompletion,
     variables: {
       prompt: prompt(conversation.title, conversation.lines.items),
-      stops: conversation.speakers.map((speaker) => `${speaker}:`),
+      stops: [...conversation.speakers.map((speaker) => `${speaker}:`), 'The following is a conversation'],
     },
     authMode: "AMAZON_COGNITO_USER_POOLS",
   });
