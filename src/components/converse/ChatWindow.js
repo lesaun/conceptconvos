@@ -1,7 +1,23 @@
 import React, { useEffect, useRef } from "react";
 import Paper from "@mui/material/Paper";
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
 
-const Chat = ({ align, text, color }) => {
+import { API, graphqlOperation } from "aws-amplify";
+import * as mutations from "src/graphql/mutations";
+
+const deleteLine = (lineId) => {
+  API.graphql(
+    graphqlOperation(mutations.deleteLine, {
+      input: {
+        id: lineId
+      },
+    })
+  );
+};
+
+const Chat = ({ align, text, color, lineId }) => {
+  console.log(lineId)
   return (
     <div
       style={{
@@ -21,6 +37,9 @@ const Chat = ({ align, text, color }) => {
         }}
       >
         <p>{text}</p>
+        <IconButton onClick={() => deleteLine(lineId)}>
+          <DeleteIcon />
+        </IconButton>
       </Paper>
     </div>
   );
@@ -45,6 +64,7 @@ const ChatWindow = ({ conversationLines, activeSpeaker }) => {
               conversationLines ? (
                 <Chat
                   key={conversationLines.speaker + i.toString()}
+                  lineId={conversationLines.id}
                   align={
                     conversationLines.speaker === activeSpeaker
                       ? "left"

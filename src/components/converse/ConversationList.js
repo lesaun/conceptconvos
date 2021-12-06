@@ -6,6 +6,23 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { Button } from "@mui/material";
 
+import DeleteIcon from "@mui/icons-material/Delete";
+import IconButton from "@mui/material/IconButton";
+
+import { API, graphqlOperation } from "aws-amplify";
+import * as mutations from "src/graphql/mutations";
+
+const deleteConversation = (conversationId) => {
+  API.graphql(
+    graphqlOperation(mutations.deleteConversation, {
+      input: {
+        id: conversationId
+      },
+    })
+  );
+};
+
+
 export default function ConversationList({
   conversations,
   selectedConversationId,
@@ -31,6 +48,9 @@ export default function ConversationList({
               selected={selectedConversationId === conversation.id}
             >
               <ListItemText primary={conversation.title} />
+              <IconButton onClick={() => deleteConversation(conversation.id)}>
+                <DeleteIcon />
+              </IconButton>
             </ListItemButton>
           </Link>
         ))}
