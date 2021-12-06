@@ -34,6 +34,7 @@ export default function ConversationList({
         maxWidth: 360,
         bgcolor: "background.paper",
         borderRight: "1px solid lightgray",
+        overflow: 'scroll'
       }}
     >
       <List component="nav" aria-label="main mailbox folders">
