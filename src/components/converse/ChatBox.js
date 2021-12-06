@@ -29,7 +29,7 @@ export default function ChatBox({
   };
 
   const sendText = () => {
-    if (activeSpeaker === undefined) {
+    if (activeSpeaker === undefined && text !== "") {
       return;
     }
     API.graphql(
