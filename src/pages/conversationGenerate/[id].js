@@ -5,9 +5,9 @@ import { createLine } from "src/graphql/mutations";
 
 import prompt from "src/prompts/conceptConversationPrompt";
 
-export default async function handler(req, res) {
+export async function getServerSideProps({ req, params }) {
   const SSR = withSSRContext({ req });
-  const { id } = req.query;
+  const { id } = params;
 
   let conversation = await SSR.API.graphql({
     query: getConversation,
@@ -29,7 +29,7 @@ export default async function handler(req, res) {
   openAiCompletion = openAiCompletion.data.getOpenAiCompletion;
   openAiCompletion = JSON.parse(openAiCompletion);
 
-  SSR.API.graphql({
+  await SSR.API.graphql({
     query: createLine,
     variables: {
       input: {
@@ -41,5 +41,9 @@ export default async function handler(req, res) {
     authMode: "AMAZON_COGNITO_USER_POOLS",
   });
 
-  res.status(200).json({});
+  return { props: { openAiCompletion } }
+}
+
+export default function ConversationGenerate() {
+  return <div></div>;
 }
