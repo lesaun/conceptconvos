@@ -17,6 +17,7 @@ type Line @model @auth(rules: [{ allow: private }]) {
   text: String
   speaker: String
   createdAt: String!
+  liked: Boolean
 
   conversationID: ID!  @index(name: "byConversation", sortKeyFields: ["createdAt"])
   conversation: Conversation @belongsTo(fields: ["conversationID"])

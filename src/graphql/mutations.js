@@ -18,6 +18,7 @@ export const createConversation = /* GraphQL */ `
           text
           speaker
           createdAt
+          liked
           conversationID
           updatedAt
         }
@@ -45,6 +46,7 @@ export const updateConversation = /* GraphQL */ `
           text
           speaker
           createdAt
+          liked
           conversationID
           updatedAt
         }
@@ -72,6 +74,7 @@ export const deleteConversation = /* GraphQL */ `
           text
           speaker
           createdAt
+          liked
           conversationID
           updatedAt
         }
@@ -92,6 +95,7 @@ export const createLine = /* GraphQL */ `
       text
       speaker
       createdAt
+      liked
       conversationID
       conversation {
         id
@@ -119,6 +123,7 @@ export const updateLine = /* GraphQL */ `
       text
       speaker
       createdAt
+      liked
       conversationID
       conversation {
         id
@@ -146,6 +151,7 @@ export const deleteLine = /* GraphQL */ `
       text
       speaker
       createdAt
+      liked
       conversationID
       conversation {
         id

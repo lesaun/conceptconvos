@@ -19,7 +19,7 @@
         "converseGenerate": {
           "secretsPathAmplifyAppId": "d3udxqjrc34mni",
           "deploymentBucketName": "amplify-conceptconvos-staging-33627-deployment",
-          "s3Key": "amplify-builds/converseGenerate-5931722f57495958752b-build.zip"
+          "s3Key": "amplify-builds/converseGenerate-556737644c74306b794e-build.zip"
         }
       }
     }

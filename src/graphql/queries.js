@@ -20,6 +20,7 @@ export const getConversation = /* GraphQL */ `
           text
           speaker
           createdAt
+          liked
           conversationID
           updatedAt
         }
@@ -60,6 +61,7 @@ export const getLine = /* GraphQL */ `
       text
       speaker
       createdAt
+      liked
       conversationID
       conversation {
         id
@@ -89,6 +91,7 @@ export const listLines = /* GraphQL */ `
         text
         speaker
         createdAt
+        liked
         conversationID
         conversation {
           id

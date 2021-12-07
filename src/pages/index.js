@@ -3,38 +3,31 @@ import { withSSRContext } from "aws-amplify";
 
 import { listConversationsOnlyIdTitle } from "src/graphql/queries-custom";
 
-import ConversationList from "src/components/converse/ConversationList";
-import ConversationCreateForm from "src/components/converse/ConversationCreateForm";
-
-import styles from "src/styles/Converse.module.css";
+import Conversation from "src/components/conversation/Conversation";
+import styles from "src/styles/Conversation.module.css";
 
 export async function getServerSideProps({ req }) {
   const SSR = withSSRContext({ req });
-  let conversationList;
-  let apiResult = null;
+  let conversations;
 
   try {
-    conversationList = await SSR.API.graphql({
+    conversations = await SSR.API.graphql({
       query: listConversationsOnlyIdTitle,
       authMode: "AMAZON_COGNITO_USER_POOLS",
     });
-    conversationList = conversationList.data.listConversations.items;
+    conversations = conversations.data.listConversations.items;
   } catch (e) {
-    conversationList = [];
+    conversations = [];
   }
 
   return {
     props: {
-      conversationList,
+      conversations,
     },
   };
 }
 
-export default function Converse({ conversationList }) {
-  if (conversationList == null) {
-    return <div></div>;
-  }
-
+export default function Converse(props) {
   return (
     <div className={styles.container}>
       <Head>
@@ -44,13 +37,7 @@ export default function Converse({ conversationList }) {
       </Head>
 
       <main className={styles.main}>
-        <ConversationList
-          conversations={conversationList}
-          selectedConversationId={null}
-        />
-        <div className={styles.chat}>
-          <ConversationCreateForm />
-        </div>
+        <Conversation {...props} />
       </main>
     </div>
   );
