@@ -5,7 +5,7 @@ import { withSSRContext } from "aws-amplify";
 import { getConversation } from "src/graphql/queries";
 import { listConversationsOnlyIdTitle } from "src/graphql/queries-custom";
 
-import Conversation from 'src/components/conversation/Conversation'
+import Conversation from "src/components/conversation/Conversation";
 import styles from "src/styles/Conversation.module.css";
 
 export async function getServerSideProps({ req, params }) {
@@ -23,6 +23,15 @@ export async function getServerSideProps({ req, params }) {
       });
       conversation = conversation.data.getConversation;
     } catch (e) {}
+  }
+
+  if (conversation === null) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
+    };
   }
 
   try {
