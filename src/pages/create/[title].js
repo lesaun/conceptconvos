@@ -1,11 +1,22 @@
 import Head from "next/head";
 import { withSSRContext } from "aws-amplify";
-
 import { createConversation } from "src/graphql/mutations";
-import styles from "src/styles/Conversation.module.css";
 
 export async function getServerSideProps({ req, params }) {
   const SSR = withSSRContext({ req });
+
+  try {
+    await SSR.Auth.currentSession();
+  }
+  catch {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+    };
+  }
+
   let destination = "/";
 
   try {

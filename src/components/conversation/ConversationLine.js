@@ -6,13 +6,12 @@ import { useConversationContext } from "./context";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 
+import styles from "src/styles/Conversation.module.css";
+
 function Buttons({ onDeleteClick, onLikeClick, isLiked, isEditMode }) {
   return (
     <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-      }}
+      className={styles.conversationlinebuttons}
     >
       <div>
         {isEditMode ? (
@@ -38,11 +37,7 @@ export default function ConversationLine({ align, text, color, lineId, liked }) 
 
   return (
     <div
-      style={{
-        display: "flex",
-        justifyContent: align === "left" ? "flex-start" : "flex-end",
-        width: "100%",
-      }}
+      className={align === "left" ? styles.conversationlineleft : styles.conversationlineright}
     >
       {align !== "left" ? (
         <Buttons
@@ -55,14 +50,11 @@ export default function ConversationLine({ align, text, color, lineId, liked }) 
       <Paper
         elevation={1}
         sx={{ width: { sm: 400 }, flexShrink: { sm: 0 } }}
-        style={{
-          backgroundColor: color,
-          margin: 5,
-          padding: 10,
-          borderRadius: 10,
-        }}
+        className={align === "left" ? styles.conversationlinepaperleft : styles.conversationlinepaperright}
       >
-        <p>{text}</p>
+        <p
+        className={align !== "left" ?  styles.conversationlinetextright : null}
+        >{text}</p>
       </Paper>
       {align === "left" ? (
         <Buttons

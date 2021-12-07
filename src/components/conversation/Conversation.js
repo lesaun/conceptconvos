@@ -8,12 +8,13 @@ import { ConversationContextProvider } from "src/components/conversation/context
 import styles from "src/styles/Conversation.module.css";
 
 export default function Conversation(props) {
+  console.log(props)
   return (
     <ConversationContextProvider {...props}>
       {"conversationID" in props ? (
         <>
           <ConversationMenu />
-          <div className={styles.chat}>
+          <div className={styles.conversationwindow}>
             <ConversationLinesWindow />
             <ConversationActions />
           </div>

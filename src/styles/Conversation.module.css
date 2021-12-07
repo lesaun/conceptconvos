@@ -1,32 +1,64 @@
-.main {
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    flex-direction: row;
-  }
-  
-  .chat {
-    display: flex;
-    flex-direction: column;
-    padding: 2vh;
-    flex-grow: 1;
-    justify-content: space-between;
-    height: 100vh;
-    width: calc('100% - 300');
-  }
+.container {
+  height: 100%;
+}
 
-  .chat-closed-menu {
-    display: flex;
-    flex-direction: column;
-    padding: 2vh;
-    justify-content: space-between;
-    height: 100vh;
-    width: calc('100% - 300');
-  }
-  
-  .title {
-    margin: 0;
-    line-height: 1.15;
-    font-size: 4rem;
-    text-align: center;
-  }
+.main {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+}
+
+.conversationwindow {
+  display: flex;
+  flex-direction: column;
+  padding: 2vh;
+  flex-grow: 1;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.conversationlineswindow {
+  overflow: scroll;
+  flex-grow: 1;
+}
+
+.conversationlineleft {
+  display: flex;
+  justify-content: "flex-start";
+  width: "100%";
+}
+
+.conversationlineright {
+  display: flex;
+  justify-content: "flex-end";
+  width: "100%";
+}
+
+.conversationlinepaperleft {
+  background-color: lightgrey !important;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.conversationlinepaperright {
+  background-color: #1976d2 !important;
+  color: white;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.conversationlinetextright {
+  color: white;
+}
+
+.conversationlinebuttons {
+  display: flex;
+  align-items: center;
+}
+
+.conversationgeneratebutton {
+  height: 48px;
+  padding: 4;
+}

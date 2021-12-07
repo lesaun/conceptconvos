@@ -4,6 +4,8 @@ import ConversationLine from "./ConversationLine";
 import LinearProgress from '@mui/material/LinearProgress';
 import { useConversationContext } from "./context";
 
+import styles from "src/styles/Conversation.module.css";
+
 export default function ConversationLinesWindow() {
   const { conversationID, conversationLines, speaker, loadingConversationID } = useConversationContext();
   const el = useRef(null);
@@ -17,7 +19,7 @@ export default function ConversationLinesWindow() {
   }, [conversationLines]);
 
   return (
-    <div style={{ maxHeight: "calc(100% - 64px)", overflow: "scroll" }}>
+    <div className={styles.conversationlineswindow}>
       {(loadingConversationID && conversationID !== loadingConversationID) ?  <LinearProgress /> : null}
       {speaker !== undefined
         ? conversationLines !== undefined

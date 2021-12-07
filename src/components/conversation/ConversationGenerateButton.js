@@ -1,7 +1,10 @@
 import * as React from "react";
+
 import Button from "@mui/material/Button";
 
 import { useConversationContext } from "./context";
+
+import styles from "src/styles/Conversation.module.css";
 
 export default function ConversationGenerateButton() {
   const { executeConversationGenerate } = useConversationContext();
@@ -10,7 +13,7 @@ export default function ConversationGenerateButton() {
     <Button
       id="basic-button"
       aria-label="generate conversation line"
-      style={{ height: 48, marginLeft: 4, marginRight: 4 }}
+      className={styles.conversationgeneratebutton}
       onClick={executeConversationGenerate}
     >
       Generate

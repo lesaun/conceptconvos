@@ -11,6 +11,18 @@ import styles from "src/styles/Conversation.module.css";
 export async function getServerSideProps({ req, params }) {
   const SSR = withSSRContext({ req });
 
+  try {
+    await SSR.Auth.currentSession();
+  }
+  catch {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+    };
+  }
+
   let conversation = null;
   let conversations;
 

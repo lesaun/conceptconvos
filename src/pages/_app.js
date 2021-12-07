@@ -1,15 +1,18 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
+
+import { CacheProvider } from "@emotion/react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { CacheProvider } from "@emotion/react";
-import theme from "../theme";
 import createEmotionCache from "../createEmotionCache";
-import { withAuthenticator } from "@aws-amplify/ui-react";
+import theme from "../theme";
 
 import Amplify from "aws-amplify";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+
 import awsconfig from "../aws-exports";
+import "src/styles/globals.css";
 
 Amplify.configure({ ...awsconfig, ssr: true });
 const clientSideEmotionCache = createEmotionCache();

@@ -11,6 +11,18 @@ export async function getServerSideProps({ req }) {
   let conversations;
 
   try {
+    await SSR.Auth.currentSession();
+  }
+  catch {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+    };
+  }
+
+  try {
     conversations = await SSR.API.graphql({
       query: listConversationsOnlyIdTitle,
       authMode: "AMAZON_COGNITO_USER_POOLS",
