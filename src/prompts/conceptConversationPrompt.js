@@ -23,6 +23,6 @@ Justice: A government is a representation of me. When it acts against me, it has
 
 The following is a conversation between an Inquisitor and the concept of ${conversationTitle}.
 
-${conversationLines.map((line) => `${line.speaker}: ${line.text}`).join("\n")}
+${conversationLines.slice(-5).map((line) => `${line.speaker}: ${line.text}`).join("\n")}
 ${conversationTitle}:`;
 }
