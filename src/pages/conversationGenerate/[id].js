@@ -1,4 +1,4 @@
-import { withSSRContext, graphqlOperation } from "aws-amplify";
+import { withSSRContext } from "aws-amplify";
 
 import { getOpenAiCompletion, getConversation } from "src/graphql/queries";
 import { createLine } from "src/graphql/mutations";

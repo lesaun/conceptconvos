@@ -2,15 +2,15 @@
   "providers": [
     "awscloudformation"
   ],
-  "projectName": "conceptconvos",
+  "projectName": "conceptconvosai",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
-    "framework": "none",
+    "framework": "react",
     "config": {
       "SourceDir": "src",
-      "DistributionDir": "dist",
-      "BuildCommand": "",
+      "DistributionDir": ".next",
+      "BuildCommand": "npm run-script build",
       "StartCommand": "npm run-script start"
     }
   }

@@ -13,8 +13,7 @@ export async function getServerSideProps({ req, params }) {
 
   try {
     await SSR.Auth.currentSession();
-  }
-  catch {
+  } catch {
     return {
       redirect: {
         permanent: false,
@@ -58,7 +57,6 @@ export async function getServerSideProps({ req, params }) {
 
   return {
     props: {
-      speaker: conversation.defaultUserSpeaker,
       speakers: conversation.speakers,
       conversationID: conversation.id,
       initialConversationLines: conversation.lines.items,
@@ -68,7 +66,13 @@ export async function getServerSideProps({ req, params }) {
   };
 }
 
-export default function Converse(props) {
+export default function Converse({
+  speakers,
+  conversationID,
+  initialConversationLines,
+  initialSpeaker,
+  conversations,
+}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -78,7 +82,13 @@ export default function Converse(props) {
       </Head>
 
       <main className={styles.main}>
-        <Conversation {...props} />
+        <Conversation
+          conversationID={conversationID}
+          speakers={speakers}
+          initialConversationLines={initialConversationLines}
+          initialSpeaker={initialSpeaker}
+          conversations={conversations}
+        />
       </main>
     </div>
   );

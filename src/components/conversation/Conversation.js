@@ -1,23 +1,27 @@
-import Box from "@mui/material/Box";
-
 import ConversationMenu from "src/components/conversation/ConversationMenu";
-import ConversationActions from "src/components/conversation/ConversationActions";
-import ConversationLinesWindow from "src/components/conversation/ConversationLinesWindow";
+import ConversationWindow from "src/components/conversation/ConversationWindow";
+
 import { ConversationContextProvider } from "src/components/conversation/context";
 
-import styles from "src/styles/Conversation.module.css";
-
-export default function Conversation(props) {
-  console.log(props)
+export default function Conversation({
+  speakers,
+  conversationID,
+  initialConversationLines,
+  initialSpeaker,
+  conversations,
+}) {
   return (
-    <ConversationContextProvider {...props}>
-      {"conversationID" in props ? (
+    <ConversationContextProvider
+      conversationID={conversationID}
+      speakers={speakers}
+      initialConversationLines={initialConversationLines}
+      initialSpeaker={initialSpeaker}
+      conversations={conversations}
+    >
+      {conversationID !== null ? (
         <>
           <ConversationMenu />
-          <div className={styles.conversationwindow}>
-            <ConversationLinesWindow />
-            <ConversationActions />
-          </div>
+          <ConversationWindow />
         </>
       ) : (
         <ConversationMenu alwaysMobileOpen />

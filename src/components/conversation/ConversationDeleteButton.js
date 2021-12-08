@@ -14,7 +14,7 @@ import { useTheme } from "@mui/material/styles";
 
 import { useConversationContext } from "./context";
 
-export default function ConversationGenerateButton() {
+export default function ConversationDeleteButton() {
   const { executeDeleteConversation } = useConversationContext();
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();

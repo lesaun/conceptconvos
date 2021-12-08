@@ -19,14 +19,14 @@ export function ConversationContextProvider({
   initialSpeaker,
   conversations,
   initialConversationLines,
-  authState,
 }) {
-  console.log(authState)
   const [speaker, setSpeaker] = useState(initialSpeaker);
   const [isEditMode, setIsEditMode] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const [loadingConversationID, setLoadingConversationID] =
     useState(conversationID);
+
   const [conversationLines, setConversationLines] = useConversationLines(
     conversationID,
     initialConversationLines

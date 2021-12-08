@@ -12,15 +12,14 @@
       "AmplifyAppId": "d3udxqjrc34mni"
     },
     "categories": {
-      "auth": {
-        "conceptconvos8baf4dd9": {}
-      },
       "function": {
         "converseGenerate": {
-          "secretsPathAmplifyAppId": "d3udxqjrc34mni",
           "deploymentBucketName": "amplify-conceptconvos-staging-33627-deployment",
-          "s3Key": "amplify-builds/converseGenerate-556737644c74306b794e-build.zip"
+          "s3Key": "amplify-builds/converseGenerate-44744d7a5432427a5441-build.zip"
         }
+      },
+      "auth": {
+        "conceptconvos8baf4dd9": {}
       }
     }
   }

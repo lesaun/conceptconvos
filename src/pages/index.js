@@ -1,4 +1,5 @@
 import Head from "next/head";
+
 import { withSSRContext } from "aws-amplify";
 
 import { listConversationsOnlyIdTitle } from "src/graphql/queries-custom";
@@ -39,7 +40,7 @@ export async function getServerSideProps({ req }) {
   };
 }
 
-export default function Converse(props) {
+export default function Converse({ conversations }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -49,7 +50,7 @@ export default function Converse(props) {
       </Head>
 
       <main className={styles.main}>
-        <Conversation {...props} />
+        <Conversation conversations={conversations} />
       </main>
     </div>
   );
