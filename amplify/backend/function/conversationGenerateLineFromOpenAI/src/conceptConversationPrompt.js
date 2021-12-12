@@ -1,4 +1,4 @@
-export default function prompt(conversationTitle, conversationLines) {
+function getPrompt(conversationTitle, speaker, conversationLines) {
     return `The following is a conversation between an Inquisitor and the concept of Ontology.
 
 Inquisitor: Hello, what is your definition?
@@ -24,5 +24,7 @@ Justice: A government is a representation of me. When it acts against me, it has
 The following is a conversation between an Inquisitor and the concept of ${conversationTitle}.
 
 ${conversationLines.map((line) => `${line.speaker}: ${line.text}`).join("\n")}
-${conversationTitle}:`;
+${speaker}:`;
 }
+
+exports.getPrompt = getPrompt;

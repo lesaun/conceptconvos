@@ -1,7 +1,6 @@
 import ConversationMenu from "src/components/conversation/ConversationMenu";
 import ConversationWindow from "src/components/conversation/ConversationWindow";
-
-import { ConversationContextProvider } from "src/components/conversation/context";
+import ConversationContextProvider from "src/components/conversation/context";
 
 export default function Conversation({
   speakers,

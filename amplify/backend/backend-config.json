@@ -39,7 +39,11 @@
               "userPoolId": "authconceptconvos8baf4dd9"
             }
           },
-          "additionalAuthenticationProviders": []
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
         }
       }
     }
@@ -55,6 +59,21 @@
           "resourceName": "conceptconvosql",
           "attributes": [
             "GraphQLAPIIdOutput"
+          ]
+        }
+      ]
+    },
+    "conversationGenerateLineFromOpenAI": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "conceptconvosql",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput"
           ]
         }
       ]

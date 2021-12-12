@@ -12,7 +12,7 @@ import {
 
 const ConversationContext = createContext({});
 
-export function ConversationContextProvider({
+export default function ConversationContextProvider({
   children,
   conversationID,
   speakers,

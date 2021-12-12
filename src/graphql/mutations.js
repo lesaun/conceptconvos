@@ -24,6 +24,24 @@ export const createConversation = /* GraphQL */ `
         }
         nextToken
       }
+      generateLineFromOpenAI {
+        id
+        text
+        speaker
+        createdAt
+        liked
+        conversationID
+        conversation {
+          id
+          title
+          speakers
+          defaultUserSpeaker
+          tempature
+          createdAt
+          updatedAt
+        }
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -51,6 +69,24 @@ export const updateConversation = /* GraphQL */ `
           updatedAt
         }
         nextToken
+      }
+      generateLineFromOpenAI {
+        id
+        text
+        speaker
+        createdAt
+        liked
+        conversationID
+        conversation {
+          id
+          title
+          speakers
+          defaultUserSpeaker
+          tempature
+          createdAt
+          updatedAt
+        }
+        updatedAt
       }
       createdAt
       updatedAt
@@ -80,6 +116,24 @@ export const deleteConversation = /* GraphQL */ `
         }
         nextToken
       }
+      generateLineFromOpenAI {
+        id
+        text
+        speaker
+        createdAt
+        liked
+        conversationID
+        conversation {
+          id
+          title
+          speakers
+          defaultUserSpeaker
+          tempature
+          createdAt
+          updatedAt
+        }
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -105,6 +159,15 @@ export const createLine = /* GraphQL */ `
         tempature
         lines {
           nextToken
+        }
+        generateLineFromOpenAI {
+          id
+          text
+          speaker
+          createdAt
+          liked
+          conversationID
+          updatedAt
         }
         createdAt
         updatedAt
@@ -134,6 +197,15 @@ export const updateLine = /* GraphQL */ `
         lines {
           nextToken
         }
+        generateLineFromOpenAI {
+          id
+          text
+          speaker
+          createdAt
+          liked
+          conversationID
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -161,6 +233,15 @@ export const deleteLine = /* GraphQL */ `
         tempature
         lines {
           nextToken
+        }
+        generateLineFromOpenAI {
+          id
+          text
+          speaker
+          createdAt
+          liked
+          conversationID
+          updatedAt
         }
         createdAt
         updatedAt

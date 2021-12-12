@@ -1,11 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getOpenAiCompletion = /* GraphQL */ `
-  query GetOpenAiCompletion($prompt: String, $stops: [String]) {
-    getOpenAiCompletion(prompt: $prompt, stops: $stops)
-  }
-`;
 export const getConversation = /* GraphQL */ `
   query GetConversation($id: ID!) {
     getConversation(id: $id) {
@@ -25,6 +20,24 @@ export const getConversation = /* GraphQL */ `
           updatedAt
         }
         nextToken
+      }
+      generateLineFromOpenAI {
+        id
+        text
+        speaker
+        createdAt
+        liked
+        conversationID
+        conversation {
+          id
+          title
+          speakers
+          defaultUserSpeaker
+          tempature
+          createdAt
+          updatedAt
+        }
+        updatedAt
       }
       createdAt
       updatedAt
@@ -46,6 +59,15 @@ export const listConversations = /* GraphQL */ `
         tempature
         lines {
           nextToken
+        }
+        generateLineFromOpenAI {
+          id
+          text
+          speaker
+          createdAt
+          liked
+          conversationID
+          updatedAt
         }
         createdAt
         updatedAt
@@ -71,6 +93,15 @@ export const getLine = /* GraphQL */ `
         tempature
         lines {
           nextToken
+        }
+        generateLineFromOpenAI {
+          id
+          text
+          speaker
+          createdAt
+          liked
+          conversationID
+          updatedAt
         }
         createdAt
         updatedAt

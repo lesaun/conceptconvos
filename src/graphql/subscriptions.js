@@ -1,81 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onLineConversationCreate = /* GraphQL */ `
-  subscription OnLineConversationCreate($conversationID: String!) {
-    onLineConversationCreate(conversationID: $conversationID) {
-      id
-      text
-      speaker
-      createdAt
-      liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      updatedAt
-    }
-  }
-`;
-export const onLineConversationUpdate = /* GraphQL */ `
-  subscription OnLineConversationUpdate($conversationID: String!) {
-    onLineConversationUpdate(conversationID: $conversationID) {
-      id
-      text
-      speaker
-      createdAt
-      liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      updatedAt
-    }
-  }
-`;
-export const onLineConversationDelete = /* GraphQL */ `
-  subscription OnLineConversationDelete($conversationID: String!) {
-    onLineConversationDelete(conversationID: $conversationID) {
-      id
-      text
-      speaker
-      createdAt
-      liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      updatedAt
-    }
-  }
-`;
 export const onCreateConversation = /* GraphQL */ `
   subscription OnCreateConversation {
     onCreateConversation {
@@ -95,6 +20,24 @@ export const onCreateConversation = /* GraphQL */ `
           updatedAt
         }
         nextToken
+      }
+      generateLineFromOpenAI {
+        id
+        text
+        speaker
+        createdAt
+        liked
+        conversationID
+        conversation {
+          id
+          title
+          speakers
+          defaultUserSpeaker
+          tempature
+          createdAt
+          updatedAt
+        }
+        updatedAt
       }
       createdAt
       updatedAt
@@ -121,6 +64,24 @@ export const onUpdateConversation = /* GraphQL */ `
         }
         nextToken
       }
+      generateLineFromOpenAI {
+        id
+        text
+        speaker
+        createdAt
+        liked
+        conversationID
+        conversation {
+          id
+          title
+          speakers
+          defaultUserSpeaker
+          tempature
+          createdAt
+          updatedAt
+        }
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -146,6 +107,24 @@ export const onDeleteConversation = /* GraphQL */ `
         }
         nextToken
       }
+      generateLineFromOpenAI {
+        id
+        text
+        speaker
+        createdAt
+        liked
+        conversationID
+        conversation {
+          id
+          title
+          speakers
+          defaultUserSpeaker
+          tempature
+          createdAt
+          updatedAt
+        }
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -168,6 +147,15 @@ export const onCreateLine = /* GraphQL */ `
         tempature
         lines {
           nextToken
+        }
+        generateLineFromOpenAI {
+          id
+          text
+          speaker
+          createdAt
+          liked
+          conversationID
+          updatedAt
         }
         createdAt
         updatedAt
@@ -194,6 +182,15 @@ export const onUpdateLine = /* GraphQL */ `
         lines {
           nextToken
         }
+        generateLineFromOpenAI {
+          id
+          text
+          speaker
+          createdAt
+          liked
+          conversationID
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -218,6 +215,117 @@ export const onDeleteLine = /* GraphQL */ `
         tempature
         lines {
           nextToken
+        }
+        generateLineFromOpenAI {
+          id
+          text
+          speaker
+          createdAt
+          liked
+          conversationID
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      updatedAt
+    }
+  }
+`;
+export const onLineConversationCreate = /* GraphQL */ `
+  subscription OnLineConversationCreate($conversationID: String!) {
+    onLineConversationCreate(conversationID: $conversationID) {
+      id
+      text
+      speaker
+      createdAt
+      liked
+      conversationID
+      conversation {
+        id
+        title
+        speakers
+        defaultUserSpeaker
+        tempature
+        lines {
+          nextToken
+        }
+        generateLineFromOpenAI {
+          id
+          text
+          speaker
+          createdAt
+          liked
+          conversationID
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      updatedAt
+    }
+  }
+`;
+export const onLineConversationUpdate = /* GraphQL */ `
+  subscription OnLineConversationUpdate($conversationID: String!) {
+    onLineConversationUpdate(conversationID: $conversationID) {
+      id
+      text
+      speaker
+      createdAt
+      liked
+      conversationID
+      conversation {
+        id
+        title
+        speakers
+        defaultUserSpeaker
+        tempature
+        lines {
+          nextToken
+        }
+        generateLineFromOpenAI {
+          id
+          text
+          speaker
+          createdAt
+          liked
+          conversationID
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      updatedAt
+    }
+  }
+`;
+export const onLineConversationDelete = /* GraphQL */ `
+  subscription OnLineConversationDelete($conversationID: String!) {
+    onLineConversationDelete(conversationID: $conversationID) {
+      id
+      text
+      speaker
+      createdAt
+      liked
+      conversationID
+      conversation {
+        id
+        title
+        speakers
+        defaultUserSpeaker
+        tempature
+        lines {
+          nextToken
+        }
+        generateLineFromOpenAI {
+          id
+          text
+          speaker
+          createdAt
+          liked
+          conversationID
+          updatedAt
         }
         createdAt
         updatedAt
