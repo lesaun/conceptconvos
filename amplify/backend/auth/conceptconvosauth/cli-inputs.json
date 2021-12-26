@@ -46,10 +46,8 @@
     "triggers": {},
     "hostedUI": true,
     "hostedUIDomainName": "conceptconvosauth",
-    "authProvidersUserPool": [
-      "Google"
-    ],
-    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "authProvidersUserPool": [],
+    "hostedUIProviderMeta": "[]",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
@@ -68,7 +66,6 @@
     },
     "breakCircularDependency": true,
     "dependsOn": [],
-    "hostedUIProviderCreds": "[]",
     "googleClientId": "831971067275-ddftm9o108mpehr0dq46hgp48ifoghoh.apps.googleusercontent.com",
     "parentStack": {
       "Ref": "AWS::StackId"

@@ -8,24 +8,21 @@ type Conversation
   @model
   @auth(rules: [{ allow: private }, { allow: private, provider: iam }]) {
   id: ID!
-  title: String
-  speakers: [String]
-  defaultUserSpeaker: String
-  tempature: Float
-  lines: [Line] @hasMany(indexName: "byConversation", fields: ["id"])
+  title: String!
+  speakers: [String!]!
+  defaultUserSpeaker: String!
+  tempature: Float!
+  lines: [Line!]! @hasMany
 }
 
 type Line
   @model
   @auth(rules: [{ allow: private }, { allow: private, provider: iam }]) {
   id: ID!
-  text: String
-  speaker: String
-  createdAt: String!
+  text: String!
+  conversationLinesId: String!
+  speaker: String!
   liked: Boolean
-  conversationID: ID!
-    @index(name: "byConversation", sortKeyFields: ["createdAt"])
-  conversation: Conversation @belongsTo(fields: ["conversationID"])
 }
 
 type Subscription {

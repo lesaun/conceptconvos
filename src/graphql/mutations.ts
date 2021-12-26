@@ -2,38 +2,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const generateLineFromOpenAI = /* GraphQL */ `
-  mutation GenerateLineFromOpenAI($conversationID: String, $speaker: String) {
-    generateLineFromOpenAI(conversationID: $conversationID, speaker: $speaker) {
-      id
-      text
-      speaker
-      createdAt
-      liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
 export const createConversation = /* GraphQL */ `
   mutation CreateConversation(
     $input: CreateConversationInput!
@@ -49,10 +17,10 @@ export const createConversation = /* GraphQL */ `
         items {
           id
           text
+          conversationLinesId
           speaker
-          createdAt
           liked
-          conversationID
+          createdAt
           updatedAt
           _version
           _deleted
@@ -84,10 +52,10 @@ export const updateConversation = /* GraphQL */ `
         items {
           id
           text
+          conversationLinesId
           speaker
-          createdAt
           liked
-          conversationID
+          createdAt
           updatedAt
           _version
           _deleted
@@ -119,10 +87,10 @@ export const deleteConversation = /* GraphQL */ `
         items {
           id
           text
+          conversationLinesId
           speaker
-          createdAt
           liked
-          conversationID
+          createdAt
           updatedAt
           _version
           _deleted
@@ -147,26 +115,10 @@ export const createLine = /* GraphQL */ `
     createLine(input: $input, condition: $condition) {
       id
       text
+      conversationLinesId
       speaker
-      createdAt
       liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      createdAt
       updatedAt
       _version
       _deleted
@@ -182,26 +134,10 @@ export const updateLine = /* GraphQL */ `
     updateLine(input: $input, condition: $condition) {
       id
       text
+      conversationLinesId
       speaker
-      createdAt
       liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      createdAt
       updatedAt
       _version
       _deleted
@@ -217,26 +153,26 @@ export const deleteLine = /* GraphQL */ `
     deleteLine(input: $input, condition: $condition) {
       id
       text
+      conversationLinesId
       speaker
-      createdAt
       liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const generateLineFromOpenAI = /* GraphQL */ `
+  mutation GenerateLineFromOpenAI($conversationID: String, $speaker: String) {
+    generateLineFromOpenAI(conversationID: $conversationID, speaker: $speaker) {
+      id
+      text
+      conversationLinesId
+      speaker
+      liked
+      createdAt
       updatedAt
       _version
       _deleted

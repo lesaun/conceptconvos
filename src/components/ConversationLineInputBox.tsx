@@ -29,8 +29,8 @@ export default function LineInputBox() {
     {
       variables: {
         input: {
-          conversationID: activeConversationId,
-          speaker: activeSpeaker,
+          conversationLinesId: activeConversationId,
+          speaker: activeSpeaker ? activeSpeaker : "",
           text,
         },
       },

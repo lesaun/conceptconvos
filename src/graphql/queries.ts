@@ -14,10 +14,10 @@ export const getConversation = /* GraphQL */ `
         items {
           id
           text
+          conversationLinesId
           speaker
-          createdAt
           liked
-          conversationID
+          createdAt
           updatedAt
           _version
           _deleted
@@ -101,26 +101,10 @@ export const getLine = /* GraphQL */ `
     getLine(id: $id) {
       id
       text
+      conversationLinesId
       speaker
-      createdAt
       liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      createdAt
       updatedAt
       _version
       _deleted
@@ -138,22 +122,10 @@ export const listLines = /* GraphQL */ `
       items {
         id
         text
+        conversationLinesId
         speaker
-        createdAt
         liked
-        conversationID
-        conversation {
-          id
-          title
-          speakers
-          defaultUserSpeaker
-          tempature
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
+        createdAt
         updatedAt
         _version
         _deleted
@@ -180,22 +152,10 @@ export const syncLines = /* GraphQL */ `
       items {
         id
         text
+        conversationLinesId
         speaker
-        createdAt
         liked
-        conversationID
-        conversation {
-          id
-          title
-          speakers
-          defaultUserSpeaker
-          tempature
-          createdAt
-          updatedAt
-          _version
-          _deleted
-          _lastChangedAt
-        }
+        createdAt
         updatedAt
         _version
         _deleted

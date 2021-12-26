@@ -2,102 +2,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onLineConversationCreate = /* GraphQL */ `
-  subscription OnLineConversationCreate($conversationID: String!) {
-    onLineConversationCreate(conversationID: $conversationID) {
-      id
-      text
-      speaker
-      createdAt
-      liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onLineConversationUpdate = /* GraphQL */ `
-  subscription OnLineConversationUpdate($conversationID: String!) {
-    onLineConversationUpdate(conversationID: $conversationID) {
-      id
-      text
-      speaker
-      createdAt
-      liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
-export const onLineConversationDelete = /* GraphQL */ `
-  subscription OnLineConversationDelete($conversationID: String!) {
-    onLineConversationDelete(conversationID: $conversationID) {
-      id
-      text
-      speaker
-      createdAt
-      liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      updatedAt
-      _version
-      _deleted
-      _lastChangedAt
-    }
-  }
-`;
 export const onCreateConversation = /* GraphQL */ `
   subscription OnCreateConversation {
     onCreateConversation {
@@ -110,10 +14,10 @@ export const onCreateConversation = /* GraphQL */ `
         items {
           id
           text
+          conversationLinesId
           speaker
-          createdAt
           liked
-          conversationID
+          createdAt
           updatedAt
           _version
           _deleted
@@ -142,10 +46,10 @@ export const onUpdateConversation = /* GraphQL */ `
         items {
           id
           text
+          conversationLinesId
           speaker
-          createdAt
           liked
-          conversationID
+          createdAt
           updatedAt
           _version
           _deleted
@@ -174,10 +78,10 @@ export const onDeleteConversation = /* GraphQL */ `
         items {
           id
           text
+          conversationLinesId
           speaker
-          createdAt
           liked
-          conversationID
+          createdAt
           updatedAt
           _version
           _deleted
@@ -199,26 +103,10 @@ export const onCreateLine = /* GraphQL */ `
     onCreateLine {
       id
       text
+      conversationLinesId
       speaker
-      createdAt
       liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      createdAt
       updatedAt
       _version
       _deleted
@@ -231,26 +119,10 @@ export const onUpdateLine = /* GraphQL */ `
     onUpdateLine {
       id
       text
+      conversationLinesId
       speaker
-      createdAt
       liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      createdAt
       updatedAt
       _version
       _deleted
@@ -263,26 +135,58 @@ export const onDeleteLine = /* GraphQL */ `
     onDeleteLine {
       id
       text
+      conversationLinesId
       speaker
-      createdAt
       liked
-      conversationID
-      conversation {
-        id
-        title
-        speakers
-        defaultUserSpeaker
-        tempature
-        lines {
-          nextToken
-          startedAt
-        }
-        createdAt
-        updatedAt
-        _version
-        _deleted
-        _lastChangedAt
-      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onLineConversationCreate = /* GraphQL */ `
+  subscription OnLineConversationCreate($conversationID: String!) {
+    onLineConversationCreate(conversationID: $conversationID) {
+      id
+      text
+      conversationLinesId
+      speaker
+      liked
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onLineConversationUpdate = /* GraphQL */ `
+  subscription OnLineConversationUpdate($conversationID: String!) {
+    onLineConversationUpdate(conversationID: $conversationID) {
+      id
+      text
+      conversationLinesId
+      speaker
+      liked
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+  }
+`;
+export const onLineConversationDelete = /* GraphQL */ `
+  subscription OnLineConversationDelete($conversationID: String!) {
+    onLineConversationDelete(conversationID: $conversationID) {
+      id
+      text
+      conversationLinesId
+      speaker
+      liked
+      createdAt
       updatedAt
       _version
       _deleted
