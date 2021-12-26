@@ -71,6 +71,7 @@
       "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"email\",\"openid\",\"profile\"],\"CallbackURLs\":[\"https://conceptconvos.ai/\"],\"LogoutURLs\":[\"https://conceptconvos.ai/\"]}"
+    "hostedUIProviderCreds": "[]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"email\",\"openid\",\"profile\"],\"CallbackURLs\":[\"https://dev.d3w1x9vodw9pjp.amplifyapp.com/\"],\"LogoutURLs\":[\"https://dev.d3w1x9vodw9pjp.amplifyapp.com/\"]}"
   }
 }
