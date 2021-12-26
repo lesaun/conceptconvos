@@ -1,24 +1,26 @@
 export type AmplifyDependentResourcesAttributes = {
     "auth": {
-        "conceptconvos8baf4dd9": {
+        "conceptconvosauth": {
             "IdentityPoolId": "string",
             "IdentityPoolName": "string",
+            "HostedUIDomain": "string",
+            "OAuthMetadata": "string",
             "UserPoolId": "string",
             "UserPoolArn": "string",
             "UserPoolName": "string",
             "AppClientIDWeb": "string",
             "AppClientID": "string",
-            "CreatedSNSRole": "string"
+            "GoogleWebClient": "string"
         }
     },
     "api": {
-        "conceptconvosql": {
+        "conceptconvos": {
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
         }
     },
     "function": {
-        "converseGenerate": {
+        "conversationGenerateLineFromOpenAI": {
             "Name": "string",
             "Arn": "string",
             "Region": "string",

@@ -39,13 +39,11 @@ const createLine = gql`
 `;
 
 exports.handler = async ({
-  arguments: { speaker },
-  source,
+  arguments: { speaker, conversationID },
   request: {
     headers: { authorization },
   },
 }) => {
-  /*
   const { Parameters } = await new AWS.SSM()
     .getParameters({
       Names: ["OPENAI_API_KEY"].map((secretName) => process.env[secretName]),
@@ -54,16 +52,13 @@ exports.handler = async ({
     .promise();
 
   const OPENAI_API_KEY = Parameters[0].Value;
-  */
-
-  const OPENAI_API_KEY = "sk-jXSB8CGSl2xEWD82zeGCNOA4zfAZiPFKzogB9Pzd";
   const openai = new OpenAI(OPENAI_API_KEY);
 
   const conversation = await executeQuery(
     getConversation,
     "getConversation",
     {
-      id: source.id,
+      id: conversationID,
     },
     authorization
   );
@@ -98,7 +93,7 @@ exports.handler = async ({
     "createLine",
     {
       input: {
-        conversationID: source.id,
+        conversationID,
         speaker: speaker,
         text: completion.data.choices[0].text.trim(),
       },

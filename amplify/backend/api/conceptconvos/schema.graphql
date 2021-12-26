@@ -1,0 +1,41 @@
+type Mutation {
+  generateLineFromOpenAI(conversationID: String, speaker: String): Line
+    @function(name: "conversationGenerateLineFromOpenAI-${env}")
+    @auth(rules: [{ allow: private }])
+}
+
+type Conversation
+  @model
+  @auth(rules: [{ allow: private }, { allow: private, provider: iam }]) {
+  id: ID!
+  title: String
+  speakers: [String]
+  defaultUserSpeaker: String
+  tempature: Float
+  lines: [Line] @hasMany(indexName: "byConversation", fields: ["id"])
+}
+
+type Line
+  @model
+  @auth(rules: [{ allow: private }, { allow: private, provider: iam }]) {
+  id: ID!
+  text: String
+  speaker: String
+  createdAt: String!
+  liked: Boolean
+  conversationID: ID!
+    @index(name: "byConversation", sortKeyFields: ["createdAt"])
+  conversation: Conversation @belongsTo(fields: ["conversationID"])
+}
+
+type Subscription {
+  onLineConversationCreate(conversationID: String!): Line
+    @aws_subscribe(mutations: ["createLine"])
+    @auth(rules: [{ allow: private }])
+  onLineConversationUpdate(conversationID: String!): Line
+    @aws_subscribe(mutations: ["updateLine"])
+    @auth(rules: [{ allow: private }])
+  onLineConversationDelete(conversationID: String!): Line
+    @aws_subscribe(mutations: ["deleteLine"])
+    @auth(rules: [{ allow: private }])
+}

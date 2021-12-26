@@ -8,6 +8,15 @@
   flex-direction: row;
 }
 
+.conversationlist {
+  width: 100%;
+  height: calc(100vh - 56px);
+  top: 56;
+  left: 0;
+  position: absolute;
+  overflow: scroll;
+}
+
 .conversationwindow {
   display: flex;
   flex-direction: column;
@@ -50,6 +59,10 @@
   margin: 5px;
   padding: 10px;
   border-radius: 10px;
+
+}
+.conversationlinetextleft {
+  color: black;
 }
 
 .conversationlinetextright {

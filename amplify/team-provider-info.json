@@ -1,25 +1,27 @@
 {
-  "staging": {
+  "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-conceptconvos-staging-33627-authRole",
-      "UnauthRoleArn": "arn:aws:iam::070960731425:role/amplify-conceptconvos-staging-33627-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::070960731425:role/amplify-conceptconvos-staging-33627-authRole",
-      "Region": "us-west-2",
-      "DeploymentBucketName": "amplify-conceptconvos-staging-33627-deployment",
-      "UnauthRoleName": "amplify-conceptconvos-staging-33627-unauthRole",
-      "StackName": "amplify-conceptconvos-staging-33627",
-      "StackId": "arn:aws:cloudformation:us-west-2:070960731425:stack/amplify-conceptconvos-staging-33627/6332cb10-41d7-11ec-bc0a-06b7270bc73d",
-      "AmplifyAppId": "d3udxqjrc34mni"
+      "AuthRoleName": "amplify-conceptconvos-dev-144702-authRole",
+      "UnauthRoleArn": "arn:aws:iam::070960731425:role/amplify-conceptconvos-dev-144702-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::070960731425:role/amplify-conceptconvos-dev-144702-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-conceptconvos-dev-144702-deployment",
+      "UnauthRoleName": "amplify-conceptconvos-dev-144702-unauthRole",
+      "StackName": "amplify-conceptconvos-dev-144702",
+      "StackId": "arn:aws:cloudformation:us-east-1:070960731425:stack/amplify-conceptconvos-dev-144702/9507ef00-65d4-11ec-958f-0a3d0a4ac375",
+      "AmplifyAppId": "d3w1x9vodw9pjp"
     },
     "categories": {
       "auth": {
-         "conceptconvos8baf4dd9": {}
-       },
-       "function": {
-         "converseGenerate": {
-           "secretsPathAmplifyAppId": "d3udxqjrc34mni",
-           "deploymentBucketName": "amplify-conceptconvos-staging-33627-deployment",
-           "s3Key": "amplify-builds/converseGenerate-44744d7a5432427a5441-build.zip"
+        "conceptconvosauth": {
+          "googleClientId": "831971067275-ddftm9o108mpehr0dq46hgp48ifoghoh.apps.googleusercontent.com"
+        }
+      },
+      "function": {
+        "conversationGenerateLineFromOpenAI": {
+          "secretsPathAmplifyAppId": "d3w1x9vodw9pjp",
+          "deploymentBucketName": "amplify-conceptconvos-dev-144702-deployment",
+          "s3Key": "amplify-builds/conversationGenerateLineFromOpenAI-58506b746f35686e4b72-build.zip"
         }
       }
     }

@@ -1,11 +1,6 @@
 {
   "lambdaLayers": [],
-  "permissions": {
-    "api": {
-      "conceptconvosql": [
-        "Query",
-        "Mutation"
-      ]
-    }
-  }
+  "secretNames": [
+    "OPENAI_API_KEY"
+  ]
 }

@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  flex-direction: column
+}
+
+.rootactionbuttons {
+  display: flex;
+  flex-direction: space-between;
+  align-items: flex-end;
+}
+
+.rightactionbuttons {
+  display: flex;
+  flex-direction: space-between;
+  align-items: flex-end;
+}

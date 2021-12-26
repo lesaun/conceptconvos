@@ -1,15 +1,15 @@
 {
   "auth": {
-    "conceptconvos8baf4dd9": {
+    "conceptconvosauth": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false,
       "frontendAuthConfig": {
-        "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
+        "socialProviders": [
+          "GOOGLE"
         ],
+        "usernameAttributes": [],
         "signupAttributes": [
           "EMAIL"
         ],
@@ -28,7 +28,7 @@
     }
   },
   "api": {
-    "conceptconvosql": {
+    "conceptconvos": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
       "output": {
@@ -36,7 +36,7 @@
           "defaultAuthentication": {
             "authenticationType": "AMAZON_COGNITO_USER_POOLS",
             "userPoolConfig": {
-              "userPoolId": "authconceptconvos8baf4dd9"
+              "userPoolId": "authconceptconvosauth"
             }
           },
           "additionalAuthenticationProviders": [
@@ -49,34 +49,11 @@
     }
   },
   "function": {
-    "converseGenerate": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "conceptconvosql",
-          "attributes": [
-            "GraphQLAPIIdOutput"
-          ]
-        }
-      ]
-    },
     "conversationGenerateLineFromOpenAI": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "conceptconvosql",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput"
-          ]
-        }
-      ]
+      "dependsOn": []
     }
   }
 }
