@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import LinearProgress from "@mui/material/LinearProgress";
-import { gql, useReactiveVar } from "@apollo/client";
+import { useReactiveVar } from "@apollo/client";
 
 import { isConversationLoadingVar } from "src/apollo-cache";
 import styles from "src/styles/Conversation.module.css";

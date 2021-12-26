@@ -72,6 +72,6 @@
     },
     "permissions": [],
     "hostedUIProviderCreds": "[]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"email\",\"openid\",\"profile\"],\"CallbackURLs\":[\"https://dev.d3w1x9vodw9pjp.amplifyapp.com/\"],\"LogoutURLs\":[\"https://dev.d3w1x9vodw9pjp.amplifyapp.com/\"]}"
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"email\",\"openid\",\"profile\"],\"CallbackURLs\":[\"https://dev.d3w1x9vodw9pjp.amplifyapp.com/login/\"],\"LogoutURLs\":[\"https://dev.d3w1x9vodw9pjp.amplifyapp.com/\"]}"
   }
 }
